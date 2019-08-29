@@ -4,6 +4,8 @@
 </template>
 
 <script>
+// Written by Aaron Beaudoin at Union College
+
 export default {
   name: "restore-input",
   inheritAttrs: false,

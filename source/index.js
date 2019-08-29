@@ -1,3 +1,5 @@
+// Written by Aaron Beaudoin at Union College
+
 import { forEach, every, defaults, toString } from "lodash";
 import * as helpers from "./helpers";
 import defaultTypes from "./types";

@@ -3,6 +3,8 @@
 </template>
 
 <script>
+// Written by Aaron Beaudoin at Union College
+
 // Needed for handling of paste events
 import { insertValue } from "./helpers";
 

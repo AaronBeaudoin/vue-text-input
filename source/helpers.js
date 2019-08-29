@@ -1,3 +1,5 @@
+// Written by Aaron Beaudoin at Union College
+
 import { defaultTo } from "lodash";
 
 function getTypeConfig(element, types) {
