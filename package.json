@@ -10,13 +10,16 @@
   },
   "main": "dist/vue-dynamic-input.js",
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "stats": "webpack --profile --json > dist/stats.json",
+    "analyze": "webpack-bundle-analyzer dist/stats.json"
   },
   "devDependencies": {
     "lodash": "^4.17.15",
     "vue-loader": "^15.7.1",
     "vue-template-compiler": "^2.6.10",
     "webpack": "^4.39.3",
+    "webpack-bundle-analyzer": "^3.4.1",
     "webpack-cli": "^3.3.8"
   }
 }

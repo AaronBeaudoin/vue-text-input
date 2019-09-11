@@ -5,7 +5,9 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     path: joinPath(__dirname, "dist"),
-    filename: "vue-dynamic-input.js"
+    filename: "vue-dynamic-input.js",
+    library: "VueDynamicInput",
+    libraryTarget: "umd"
   },
   module: {
     rules: [

@@ -8,15 +8,12 @@ import defaultTypes from "./types";
 import SmartInput from "./SmartInput";
 import RestoreInput from "./RestoreInput";
 
-let plugin = {};
-export default plugin;
-
 // Input formatting in this plugin works, but it sucks because you have
 // to write your own login for keeping track of the caret position
 // and making sure you keep it in the right position as the input changes
 // In the future I would like to mimic the behavior of this library:
 // https://nosir.github.io/cleave.js/
-plugin.install = function(Vue, options) {
+export function install(Vue, options) {
   Vue.prototype.$input = {};
 
   let defaultType = {
@@ -119,7 +116,10 @@ plugin.install = function(Vue, options) {
   });
 };
 
-let globalVue = null;
-if (typeof window !== "undefined") globalVue = window.Vue;
-else if (typeof global !== "undefined") globalVue = global.Vue;
-if (globalVue) globalVue.use(plugin);
+let plugin = { install: install };
+export default plugin;
+
+// let globalVue = null;
+// if (typeof window !== "undefined") globalVue = window.Vue;
+// else if (typeof global !== "undefined") globalVue = global.Vue;
+// if (globalVue) globalVue.use(plugin);
