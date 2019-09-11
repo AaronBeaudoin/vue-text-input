@@ -1,6 +1,8 @@
 // Written by Aaron Beaudoin at Union College
 
-import { forEach, every, defaults, toString } from "lodash";
+import forEach from "lodash/forEach";
+import defaults from "lodash/defaults";
+import toString from "lodash/toString";
 import * as helpers from "./helpers";
 import defaultTypes from "./types";
 import SmartInput from "./SmartInput";
@@ -116,3 +118,8 @@ plugin.install = function(Vue, options) {
     });
   });
 };
+
+let globalVue = null;
+if (typeof window !== "undefined") globalVue = window.Vue;
+else if (typeof global !== "undefined") globalVue = global.Vue;
+if (globalVue) globalVue.use(plugin);

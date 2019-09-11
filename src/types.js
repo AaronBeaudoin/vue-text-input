@@ -1,6 +1,6 @@
 // Written by Aaron Beaudoin at Union College
 
-import { toUpper } from "lodash";
+import toUpper from "lodash/toUpper";
 
 function stripLeadingZeros(value, caretIndex) {
   return [value.replace(/^0+([0-9]\.?)/, "$1"), caretIndex];

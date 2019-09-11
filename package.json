@@ -1,0 +1,22 @@
+{
+  "name": "vue-dynamic-input",
+  "description": "Vue plugin for advanced control of text input elements.",
+  "author": "Aaron Beaudoin",
+  "license": "MIT",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AaronBeaudoin/vue-smart-input.git"
+  },
+  "main": "dist/vue-dynamic-input.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "devDependencies": {
+    "lodash": "^4.17.15",
+    "vue-loader": "^15.7.1",
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.8"
+  }
+}
