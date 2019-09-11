@@ -1,10 +1,10 @@
+<!-- Written by Aaron Beaudoin at Union College -->
+
 <template>
 <input :data-smart="type" :placeholder="placeholder" v-on="listeners" @input="handleInput" @focus="handleFocus" @blur="handleBlur"/>
 </template>
 
 <script>
-// Written by Aaron Beaudoin at Union College
-
 // Needed for handling of paste events
 import { insertValue } from "./helpers";
 

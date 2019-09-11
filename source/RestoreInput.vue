@@ -1,11 +1,11 @@
+<!-- Written by Aaron Beaudoin at Union College -->
+
 <template>
 <smart-input data-restore="true" v-bind="$attrs" v-on="$listeners"
 @focus="handleFocus" @blur="handleBlur"/>
 </template>
 
 <script>
-// Written by Aaron Beaudoin at Union College
-
 export default {
   name: "restore-input",
   inheritAttrs: false,
