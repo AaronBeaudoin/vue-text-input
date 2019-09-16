@@ -4,10 +4,16 @@ const { VueLoaderPlugin } = require("vue-loader");
 module.exports = {
   entry: "./src/index.js",
   output: {
-    path: joinPath(__dirname, "dist"),
-    filename: "vue-dynamic-input.js",
     library: "VueDynamicInput",
     libraryTarget: "umd"
+  },
+  externals: {
+    lodash: {
+      commonjs: "lodash",
+      commonjs2: "lodash",
+      amd: "lodash",
+      root: "_"
+    }
   },
   module: {
     rules: [

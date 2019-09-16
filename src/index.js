@@ -1,8 +1,6 @@
 // Written by Aaron Beaudoin at Union College
 
-import forEach from "lodash/forEach";
-import defaults from "lodash/defaults";
-import toString from "lodash/toString";
+import { forEach, defaults, toString } from "lodash";
 import * as helpers from "./helpers";
 import defaultTypes from "./types";
 import SmartInput from "./SmartInput";

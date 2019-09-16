@@ -10,7 +10,8 @@
   },
   "main": "dist/vue-dynamic-input.js",
   "scripts": {
-    "build": "webpack",
+    "prebuild": "webpack --mode=development -o dist/vue-dynamic-input.js",
+    "build": "webpack --mode=production -o dist/vue-dynamic-input.min.js",
     "stats": "webpack --profile --json > dist/stats.json",
     "analyze": "webpack-bundle-analyzer dist/stats.json"
   },

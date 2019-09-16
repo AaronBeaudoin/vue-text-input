@@ -1,1 +1,279 @@
-!function(t,e){"object"==typeof exports&&"object"==typeof module?module.exports=e():"function"==typeof define&&define.amd?define([],e):"object"==typeof exports?exports.VueDynamicInput=e():t.VueDynamicInput=e()}(window,(function(){return function(t){var e={};function n(r){if(e[r])return e[r].exports;var o=e[r]={i:r,l:!1,exports:{}};return t[r].call(o.exports,o,o.exports,n),o.l=!0,o.exports}return n.m=t,n.c=e,n.d=function(t,e,r){n.o(t,e)||Object.defineProperty(t,e,{enumerable:!0,get:r})},n.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},n.t=function(t,e){if(1&e&&(t=n(t)),8&e)return t;if(4&e&&"object"==typeof t&&t&&t.__esModule)return t;var r=Object.create(null);if(n.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:t}),2&e&&"string"!=typeof t)for(var o in t)n.d(r,o,function(e){return t[e]}.bind(null,o));return r},n.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return n.d(e,"a",e),e},n.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},n.p="",n(n.s=65)}([function(t,e,n){var r=n(21),o=n(22),i=n(43),u=n(7);t.exports=function(t,e){return(u(t)?r:o)(t,i(e))}},function(t,e,n){var r=n(5),o=n(31),i=n(32),u="[object Null]",c="[object Undefined]",a=r?r.toStringTag:void 0;t.exports=function(t){return null==t?void 0===t?c:u:a&&a in Object(t)?o(t):i(t)}},function(t,e){t.exports=function(t){return null!=t&&"object"==typeof t}},function(t,e,n){var r=n(17),o=n(15);t.exports=function(t){return null!=t&&o(t.length)&&!r(t)}},function(t,e){t.exports=function(t){var e=typeof t;return null!=t&&("object"==e||"function"==e)}},function(t,e,n){var r=n(6).Symbol;t.exports=r},function(t,e,n){var r=n(12),o="object"==typeof self&&self&&self.Object===Object&&self,i=r||o||Function("return this")();t.exports=i},function(t,e){var n=Array.isArray;t.exports=n},function(t,e){t.exports=function(t){return t}},function(t,e,n){var r=n(62);t.exports=function(t){return null==t?"":r(t)}},function(t,e,n){var r=n(44),o=n(18),i=n(58),u=n(59),c=Object.prototype,a=c.hasOwnProperty,s=r((function(t,e){t=Object(t);var n=-1,r=e.length,s=r>2?e[2]:void 0;for(s&&i(e[0],e[1],s)&&(r=1);++n<r;)for(var l=e[n],f=u(l),p=-1,v=f.length;++p<v;){var d=f[p],h=t[d];(void 0===h||o(h,c[d])&&!a.call(t,d))&&(t[d]=l[d])}return t}));t.exports=s},function(t,e,n){var r=n(27),o=n(28),i=n(7),u=n(33),c=n(14),a=n(35),s=Object.prototype.hasOwnProperty;t.exports=function(t,e){var n=i(t),l=!n&&o(t),f=!n&&!l&&u(t),p=!n&&!l&&!f&&a(t),v=n||l||f||p,d=v?r(t.length,String):[],h=d.length;for(var y in t)!e&&!s.call(t,y)||v&&("length"==y||f&&("offset"==y||"parent"==y)||p&&("buffer"==y||"byteLength"==y||"byteOffset"==y)||c(y,h))||d.push(y);return d}},function(t,e,n){(function(e){var n="object"==typeof e&&e&&e.Object===Object&&e;t.exports=n}).call(this,n(30))},function(t,e){t.exports=function(t){return t.webpackPolyfill||(t.deprecate=function(){},t.paths=[],t.children||(t.children=[]),Object.defineProperty(t,"loaded",{enumerable:!0,get:function(){return t.l}}),Object.defineProperty(t,"id",{enumerable:!0,get:function(){return t.i}}),t.webpackPolyfill=1),t}},function(t,e){var n=9007199254740991,r=/^(?:0|[1-9]\d*)$/;t.exports=function(t,e){var o=typeof t;return!!(e=null==e?n:e)&&("number"==o||"symbol"!=o&&r.test(t))&&t>-1&&t%1==0&&t<e}},function(t,e){var n=9007199254740991;t.exports=function(t){return"number"==typeof t&&t>-1&&t%1==0&&t<=n}},function(t,e){var n=Object.prototype;t.exports=function(t){var e=t&&t.constructor;return t===("function"==typeof e&&e.prototype||n)}},function(t,e,n){var r=n(1),o=n(4),i="[object AsyncFunction]",u="[object Function]",c="[object GeneratorFunction]",a="[object Proxy]";t.exports=function(t){if(!o(t))return!1;var e=r(t);return e==u||e==c||e==i||e==a}},function(t,e){t.exports=function(t,e){return t===e||t!=t&&e!=e}},function(t,e){t.exports=function(t,e){return null==t||t!=t?e:t}},function(t,e,n){var r=n(9);t.exports=function(t){return r(t).toUpperCase()}},function(t,e){t.exports=function(t,e){for(var n=-1,r=null==t?0:t.length;++n<r&&!1!==e(t[n],n,t););return t}},function(t,e,n){var r=n(23),o=n(42)(r);t.exports=o},function(t,e,n){var r=n(24),o=n(26);t.exports=function(t,e){return t&&r(t,e,o)}},function(t,e,n){var r=n(25)();t.exports=r},function(t,e){t.exports=function(t){return function(e,n,r){for(var o=-1,i=Object(e),u=r(e),c=u.length;c--;){var a=u[t?c:++o];if(!1===n(i[a],a,i))break}return e}}},function(t,e,n){var r=n(11),o=n(39),i=n(3);t.exports=function(t){return i(t)?r(t):o(t)}},function(t,e){t.exports=function(t,e){for(var n=-1,r=Array(t);++n<t;)r[n]=e(n);return r}},function(t,e,n){var r=n(29),o=n(2),i=Object.prototype,u=i.hasOwnProperty,c=i.propertyIsEnumerable,a=r(function(){return arguments}())?r:function(t){return o(t)&&u.call(t,"callee")&&!c.call(t,"callee")};t.exports=a},function(t,e,n){var r=n(1),o=n(2),i="[object Arguments]";t.exports=function(t){return o(t)&&r(t)==i}},function(t,e){var n;n=function(){return this}();try{n=n||new Function("return this")()}catch(t){"object"==typeof window&&(n=window)}t.exports=n},function(t,e,n){var r=n(5),o=Object.prototype,i=o.hasOwnProperty,u=o.toString,c=r?r.toStringTag:void 0;t.exports=function(t){var e=i.call(t,c),n=t[c];try{t[c]=void 0;var r=!0}catch(t){}var o=u.call(t);return r&&(e?t[c]=n:delete t[c]),o}},function(t,e){var n=Object.prototype.toString;t.exports=function(t){return n.call(t)}},function(t,e,n){(function(t){var r=n(6),o=n(34),i=e&&!e.nodeType&&e,u=i&&"object"==typeof t&&t&&!t.nodeType&&t,c=u&&u.exports===i?r.Buffer:void 0,a=(c?c.isBuffer:void 0)||o;t.exports=a}).call(this,n(13)(t))},function(t,e){t.exports=function(){return!1}},function(t,e,n){var r=n(36),o=n(37),i=n(38),u=i&&i.isTypedArray,c=u?o(u):r;t.exports=c},function(t,e,n){var r=n(1),o=n(15),i=n(2),u={};u["[object Float32Array]"]=u["[object Float64Array]"]=u["[object Int8Array]"]=u["[object Int16Array]"]=u["[object Int32Array]"]=u["[object Uint8Array]"]=u["[object Uint8ClampedArray]"]=u["[object Uint16Array]"]=u["[object Uint32Array]"]=!0,u["[object Arguments]"]=u["[object Array]"]=u["[object ArrayBuffer]"]=u["[object Boolean]"]=u["[object DataView]"]=u["[object Date]"]=u["[object Error]"]=u["[object Function]"]=u["[object Map]"]=u["[object Number]"]=u["[object Object]"]=u["[object RegExp]"]=u["[object Set]"]=u["[object String]"]=u["[object WeakMap]"]=!1,t.exports=function(t){return i(t)&&o(t.length)&&!!u[r(t)]}},function(t,e){t.exports=function(t){return function(e){return t(e)}}},function(t,e,n){(function(t){var r=n(12),o=e&&!e.nodeType&&e,i=o&&"object"==typeof t&&t&&!t.nodeType&&t,u=i&&i.exports===o&&r.process,c=function(){try{var t=i&&i.require&&i.require("util").types;return t||u&&u.binding&&u.binding("util")}catch(t){}}();t.exports=c}).call(this,n(13)(t))},function(t,e,n){var r=n(16),o=n(40),i=Object.prototype.hasOwnProperty;t.exports=function(t){if(!r(t))return o(t);var e=[];for(var n in Object(t))i.call(t,n)&&"constructor"!=n&&e.push(n);return e}},function(t,e,n){var r=n(41)(Object.keys,Object);t.exports=r},function(t,e){t.exports=function(t,e){return function(n){return t(e(n))}}},function(t,e,n){var r=n(3);t.exports=function(t,e){return function(n,o){if(null==n)return n;if(!r(n))return t(n,o);for(var i=n.length,u=e?i:-1,c=Object(n);(e?u--:++u<i)&&!1!==o(c[u],u,c););return n}}},function(t,e,n){var r=n(8);t.exports=function(t){return"function"==typeof t?t:r}},function(t,e,n){var r=n(8),o=n(45),i=n(47);t.exports=function(t,e){return i(o(t,e,r),t+"")}},function(t,e,n){var r=n(46),o=Math.max;t.exports=function(t,e,n){return e=o(void 0===e?t.length-1:e,0),function(){for(var i=arguments,u=-1,c=o(i.length-e,0),a=Array(c);++u<c;)a[u]=i[e+u];u=-1;for(var s=Array(e+1);++u<e;)s[u]=i[u];return s[e]=n(a),r(t,this,s)}}},function(t,e){t.exports=function(t,e,n){switch(n.length){case 0:return t.call(e);case 1:return t.call(e,n[0]);case 2:return t.call(e,n[0],n[1]);case 3:return t.call(e,n[0],n[1],n[2])}return t.apply(e,n)}},function(t,e,n){var r=n(48),o=n(57)(r);t.exports=o},function(t,e,n){var r=n(49),o=n(50),i=n(8),u=o?function(t,e){return o(t,"toString",{configurable:!0,enumerable:!1,value:r(e),writable:!0})}:i;t.exports=u},function(t,e){t.exports=function(t){return function(){return t}}},function(t,e,n){var r=n(51),o=function(){try{var t=r(Object,"defineProperty");return t({},"",{}),t}catch(t){}}();t.exports=o},function(t,e,n){var r=n(52),o=n(56);t.exports=function(t,e){var n=o(t,e);return r(n)?n:void 0}},function(t,e,n){var r=n(17),o=n(53),i=n(4),u=n(55),c=/^\[object .+?Constructor\]$/,a=Function.prototype,s=Object.prototype,l=a.toString,f=s.hasOwnProperty,p=RegExp("^"+l.call(f).replace(/[\\^$.*+?()[\]{}|]/g,"\\$&").replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g,"$1.*?")+"$");t.exports=function(t){return!(!i(t)||o(t))&&(r(t)?p:c).test(u(t))}},function(t,e,n){var r,o=n(54),i=(r=/[^.]+$/.exec(o&&o.keys&&o.keys.IE_PROTO||""))?"Symbol(src)_1."+r:"";t.exports=function(t){return!!i&&i in t}},function(t,e,n){var r=n(6)["__core-js_shared__"];t.exports=r},function(t,e){var n=Function.prototype.toString;t.exports=function(t){if(null!=t){try{return n.call(t)}catch(t){}try{return t+""}catch(t){}}return""}},function(t,e){t.exports=function(t,e){return null==t?void 0:t[e]}},function(t,e){var n=800,r=16,o=Date.now;t.exports=function(t){var e=0,i=0;return function(){var u=o(),c=r-(u-i);if(i=u,c>0){if(++e>=n)return arguments[0]}else e=0;return t.apply(void 0,arguments)}}},function(t,e,n){var r=n(18),o=n(3),i=n(14),u=n(4);t.exports=function(t,e,n){if(!u(n))return!1;var c=typeof e;return!!("number"==c?o(n)&&i(e,n.length):"string"==c&&e in n)&&r(n[e],t)}},function(t,e,n){var r=n(11),o=n(60),i=n(3);t.exports=function(t){return i(t)?r(t,!0):o(t)}},function(t,e,n){var r=n(4),o=n(16),i=n(61),u=Object.prototype.hasOwnProperty;t.exports=function(t){if(!r(t))return i(t);var e=o(t),n=[];for(var c in t)("constructor"!=c||!e&&u.call(t,c))&&n.push(c);return n}},function(t,e){t.exports=function(t){var e=[];if(null!=t)for(var n in Object(t))e.push(n);return e}},function(t,e,n){var r=n(5),o=n(63),i=n(7),u=n(64),c=1/0,a=r?r.prototype:void 0,s=a?a.toString:void 0;t.exports=function t(e){if("string"==typeof e)return e;if(i(e))return o(e,t)+"";if(u(e))return s?s.call(e):"";var n=e+"";return"0"==n&&1/e==-c?"-0":n}},function(t,e){t.exports=function(t,e){for(var n=-1,r=null==t?0:t.length,o=Array(r);++n<r;)o[n]=e(t[n],n,t);return o}},function(t,e,n){var r=n(1),o=n(2),i="[object Symbol]";t.exports=function(t){return"symbol"==typeof t||o(t)&&r(t)==i}},function(t,e,n){"use strict";n.r(e);var r={};n.r(r),n.d(r,"setValue",(function(){return d})),n.d(r,"clearValue",(function(){return h})),n.d(r,"insertValue",(function(){return y})),n.d(r,"backspaceValue",(function(){return b})),n.d(r,"confirmValue",(function(){return x}));var o=n(0),i=n.n(o),u=n(10),c=n.n(u),a=n(9),s=n.n(a),l=n(19),f=n.n(l);function p(t,e){return f()(e[t.dataset.smart],e.text)}function v(t,e,n){void 0===n&&(n=e.length),t.value=e,t.selectionStart=n,t.selectionEnd=n,t.dispatchEvent(new Event("input"))}function d(t,e,n,r){let o=p(t,e);o.restrict(n)&&v(t,...o.format(n,r))}function h(t,e){v(t,...p(t,e).format("",0))}function y(t,e,n){let r=t.value.substring(0,t.selectionStart),o=r+n+t.value.substring(t.selectionEnd),i=(r+n).length,u=p(t,e);u.restrict(o)&&v(t,...u.format(o,i))}function b(t,e){let n=t.selectionEnd!==t.selectionStart,r=t.selectionStart-(n?0:1),o=t.value.substring(0,r),i=o+t.value.substring(t.selectionEnd),u=o.length;v(t,...p(t,e).format(i,u))}function x(t){"restore"in t.dataset&&(t.dataset.restore="false")}var g=n(20),j=n.n(g);var m={number:{restrict:t=>/^[0-9]*\.?[0-9]*$/.test(t),format:function(t,e){return[t.replace(/^0+([0-9]\.?)/,"$1"),e]},parse:t=>Number(t)},boolean:{parse:t=>["true","t","yes","y"].includes(j()(t))}},O=function(){var t=this.$createElement;return(this._self._c||t)("input",this._g({attrs:{"data-smart":this.type,placeholder:this.placeholder},on:{input:this.handleInput,focus:this.handleFocus,blur:this.handleBlur}},this.listeners))};function _(t,e,n,r,o,i,u,c){var a,s="function"==typeof t?t.options:t;if(e&&(s.render=e,s.staticRenderFns=n,s._compiled=!0),r&&(s.functional=!0),i&&(s._scopeId="data-v-"+i),u?(a=function(t){(t=t||this.$vnode&&this.$vnode.ssrContext||this.parent&&this.parent.$vnode&&this.parent.$vnode.ssrContext)||"undefined"==typeof __VUE_SSR_CONTEXT__||(t=__VUE_SSR_CONTEXT__),o&&o.call(this,t),t&&t._registeredComponents&&t._registeredComponents.add(u)},s._ssrRegister=a):o&&(a=c?function(){o.call(this,this.$root.$options.shadowRoot)}:o),a)if(s.functional){s._injectStyles=a;var l=s.render;s.render=function(t,e){return a.call(e),l(t,e)}}else{var f=s.beforeCreate;s.beforeCreate=f?[].concat(f,a):[a]}return{exports:t,options:s}}O._withStripped=!0;var $=_({name:"smart-input",props:{type:{type:String,default:"text"},value:{default:null},placeholder:{type:String}},data:t=>({isFocused:!1,ignoreValue:!1}),mounted(){let t=this.stringify(this.value);[t]=this.format(t,t.length),this.$el.value=t,this.$el.addEventListener("paste",t=>{t.preventDefault();let e=t.clipboardData.getData("text");y(this.$el,this.types,e)})},computed:{valid(){return this.types[this.type].valid},invalid(){return this.types[this.type].invalid},format(){return this.types[this.type].format},parse(){return this.types[this.type].parse},stringify(){return this.types[this.type].stringify},listeners(){let{input:t,...e}=this.$listeners;return e}},methods:{validity(t){let e=this.valid.bind(this)(t);return!this.invalid.bind(this)(t)&&(!!e||null)},handleInput(t){let e=this.parse(this.$el.value);e!==this.value&&(this.ignoreValue=!0),this.$emit("input",e),this.isFocused&&(this.tracking.value=this.$el.value,this.tracking.validity=this.validity(this.$el.value))},handleFocus(t){this.isFocused=!0,this.tracking.active=!0,this.tracking.type=this.type,this.tracking.value=this.$el.value,this.tracking.validity=this.validity(this.$el.value)},handleBlur(t){this.isFocused=!1,this.tracking.active=!1}},watch:{type(t){this.isFocused&&(this.tracking.type=t)},value(t){this.ignoreValue?this.ignoreValue=!1:(t=this.stringify(t),[t]=this.format(t,t.length),this.$el.value=t)}}},O,[],!1,null,null,null);$.options.__file="src/SmartInput.vue";var S=$.exports,w=function(){var t=this.$createElement;return(this._self._c||t)("smart-input",this._g(this._b({attrs:{"data-restore":"true"},on:{focus:this.handleFocus,blur:this.handleBlur}},"smart-input",this.$attrs,!1),this.$listeners))};w._withStripped=!0;var k=_({name:"restore-input",inheritAttrs:!1,data:t=>({restoreValue:null}),methods:{handleFocus(t){this.restoreValue=this.$attrs.value},handleBlur(t){"true"===this.$el.dataset.restore&&this.$emit("input",this.restoreValue),this.$el.dataset.restore="true"}}},w,[],!1,null,null,null);k.options.__file="src/RestoreInput.vue";var E=k.exports;function A(t,e){t.prototype.$input={};let n={restrict:t=>!0,valid:t=>t.length>0,invalid:t=>!1,format:(t,e)=>[t,e],parse:t=>t,stringify:t=>s()(t)},o={text:n,...i()(m,t=>c()(t,n)),...i()(e,t=>c()(t,n))},u=t.observable({active:!1,type:null,value:"",validity:null});t.component(E.name,E),t.component(S.name,{...S,mixins:[{beforeCreate(){this.types=o,this.tracking=u}}]}),document.addEventListener("keydown",t=>{if(!t.target.dataset.smart)return;let e=1===t.key.length,n=t.ctrlKey||t.altKey||t.metaKey;e&&!n?(t.preventDefault(),y(document.activeElement,o,t.key)):"Backspace"===t.key?(t.preventDefault(),b(document.activeElement,o)):"Tab"===t.key&&t.preventDefault()}),document.addEventListener("mousedown",t=>{t.target.closest(".blurry")&&t.preventDefault()}),i()(u,(e,n)=>{Object.defineProperty(t.prototype.$input,n,{get:()=>u[n],enumerable:!0,configurable:!0})}),i()(r,(e,n)=>{Object.defineProperty(t.prototype.$input,n,{value:(...t)=>{let n=document.activeElement;n.dataset.smart&&e(n,o,...t)},writable:!0,enumerable:!0,configurable:!0})})}n.d(e,"install",(function(){return A}));let P={install:A};e.default=P}])}));
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory(require("lodash"));
+	else if(typeof define === 'function' && define.amd)
+		define(["lodash"], factory);
+	else if(typeof exports === 'object')
+		exports["VueDynamicInput"] = factory(require("lodash"));
+	else
+		root["VueDynamicInput"] = factory(root["_"]);
+})(window, function(__WEBPACK_EXTERNAL_MODULE_lodash__) {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/index.js");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./node_modules/vue-loader/lib/index.js?!./src/RestoreInput.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib??vue-loader-options!./src/RestoreInput.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n//\n//\n//\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\r\n  name: \"restore-input\",\r\n  inheritAttrs: false,\r\n  data: _ => ({\r\n    restoreValue: null\r\n  }),\r\n  methods: {\r\n    handleFocus(event) {\r\n      this.restoreValue = this.$attrs.value;\r\n    },\r\n    handleBlur(event) {\r\n      let canRestore = this.$el.dataset.restore === \"true\";\r\n      if (canRestore) this.$emit(\"input\", this.restoreValue);\r\n      this.$el.dataset.restore = \"true\";\r\n    }\r\n  }\r\n});\r\n\n\n//# sourceURL=webpack://VueDynamicInput/./src/RestoreInput.vue?./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/index.js?!./src/SmartInput.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib??vue-loader-options!./src/SmartInput.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helpers */ \"./src/helpers.js\");\n//\n//\n//\n//\n//\n//\n\r\n// Needed for handling of paste events\r\n\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\r\n  name: \"smart-input\",\r\n  props: {\r\n    type: { type: String, default: \"text\" },\r\n    value: { default: null },\r\n    placeholder: { type: String }\r\n  },\r\n  // The component must track whether its element is focused so it\r\n  // knows whether to update `$input.type` and `$input.value`\r\n  data: _ => ({\r\n    isFocused: false,\r\n    ignoreValue: false\r\n  }),\r\n  // Ensure the input value is set to `this.value`\r\n  // when the input element is initially created\r\n  mounted() {\r\n    let value = this.stringify(this.value);\r\n    [value] = this.format(value, value.length);\r\n    \r\n    // The element's value can simply be set directly because no\r\n    // `input` event needs to be emitted; An `input` value occurs\r\n    // only when a change originates in the input element\r\n    this.$el.value = value;\r\n\r\n    // Ensures paste events are restricted and formatted properly\r\n    this.$el.addEventListener(\"paste\", event => {\r\n      event.preventDefault();\r\n      let value = event.clipboardData.getData(\"text\");\r\n      Object(_helpers__WEBPACK_IMPORTED_MODULE_0__[\"insertValue\"])(this.$el, this.types, value);\r\n    });\r\n  },\r\n  computed: {\r\n    valid() {\r\n      return this.types[this.type].valid;\r\n    },\r\n    invalid() {\r\n      return this.types[this.type].invalid;\r\n    },\r\n    format() {\r\n      return this.types[this.type].format;\r\n    },\r\n    parse() {\r\n      return this.types[this.type].parse;\r\n    },\r\n    stringify() {\r\n      return this.types[this.type].stringify;\r\n    },\r\n    // Combined with the `v-on` directive in the template, this forwards\r\n    // all events on the input element up to the parent component EXCEPT\r\n    // the `input` event which is handled specially to allow `v-model`\r\n    listeners() {\r\n      let { input, ...listeners } = this.$listeners;\r\n      return listeners;\r\n    }\r\n  },\r\n  methods: {\r\n    validity(value) {\r\n      let isValid = this.valid.bind(this)(value);\r\n      let isInvalid = this.invalid.bind(this)(value);\r\n      return isInvalid ? false : isValid ? true : null;\r\n    },\r\n    handleInput(event) {\r\n      // The purpose of `this.ignoreValue` is to ensure that the parsed\r\n      // value does not overwrite the input when `watch.value` is called\r\n      let parsedValue = this.parse(this.$el.value);\r\n      if (parsedValue !== this.value) this.ignoreValue = true;\r\n      this.$emit(\"input\", parsedValue);\r\n\r\n      if (this.isFocused) {\r\n        this.tracking.value = this.$el.value;\r\n        this.tracking.validity = this.validity(this.$el.value);\r\n      }\r\n    },\r\n    handleFocus(event) {\r\n      this.isFocused = true;\r\n\r\n      this.tracking.active = true;\r\n      this.tracking.type = this.type;\r\n      this.tracking.value = this.$el.value;\r\n      this.tracking.validity = this.validity(this.$el.value);\r\n    },\r\n    handleBlur(event) {\r\n      this.isFocused = false;\r\n      this.tracking.active = false;\r\n    }\r\n  },\r\n  watch: {\r\n    // Update `$input.type` if `this.type` changes\r\n    // while the input element is focused\r\n    type(value) {\r\n      if (this.isFocused) this.tracking.type = value;\r\n    },\r\n    // Update the input value if `this.value` changes, unless the change\r\n    // was caused by an `input` event emitted by this component\r\n    // (Note that no `input` event is dispatched to prevent\r\n    // a loop where the `input` event emitted to the parent\r\n    // component causes this function to be called again)\r\n    value(value) {\r\n      if (this.ignoreValue) this.ignoreValue = false;\r\n      else {\r\n        value = this.stringify(value);\r\n        [value] = this.format(value, value.length);\r\n\r\n        // The element's value can simply be set directly because no\r\n        // `input` event needs to be emitted; An `input` value occurs\r\n        // only when a change originates in the input element\r\n        this.$el.value = value;\r\n      }\r\n    }\r\n  }\r\n});\r\n\n\n//# sourceURL=webpack://VueDynamicInput/./src/SmartInput.vue?./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./src/RestoreInput.vue?vue&type=template&id=2c5da455&":
+/*!*******************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./src/RestoreInput.vue?vue&type=template&id=2c5da455& ***!
+  \*******************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\n    \"smart-input\",\n    _vm._g(\n      _vm._b(\n        {\n          attrs: { \"data-restore\": \"true\" },\n          on: { focus: _vm.handleFocus, blur: _vm.handleBlur }\n        },\n        \"smart-input\",\n        _vm.$attrs,\n        false\n      ),\n      _vm.$listeners\n    )\n  )\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack://VueDynamicInput/./src/RestoreInput.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./src/SmartInput.vue?vue&type=template&id=061257ba&":
+/*!*****************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./src/SmartInput.vue?vue&type=template&id=061257ba& ***!
+  \*****************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\n    \"input\",\n    _vm._g(\n      {\n        attrs: { \"data-smart\": _vm.type, placeholder: _vm.placeholder },\n        on: {\n          input: _vm.handleInput,\n          focus: _vm.handleFocus,\n          blur: _vm.handleBlur\n        }\n      },\n      _vm.listeners\n    )\n  )\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack://VueDynamicInput/./src/SmartInput.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/runtime/componentNormalizer.js ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return normalizeComponent; });\n/* globals __VUE_SSR_CONTEXT__ */\n\n// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).\n// This module is a runtime utility for cleaner component module output and will\n// be included in the final webpack user bundle.\n\nfunction normalizeComponent (\n  scriptExports,\n  render,\n  staticRenderFns,\n  functionalTemplate,\n  injectStyles,\n  scopeId,\n  moduleIdentifier, /* server only */\n  shadowMode /* vue-cli only */\n) {\n  // Vue.extend constructor export interop\n  var options = typeof scriptExports === 'function'\n    ? scriptExports.options\n    : scriptExports\n\n  // render functions\n  if (render) {\n    options.render = render\n    options.staticRenderFns = staticRenderFns\n    options._compiled = true\n  }\n\n  // functional template\n  if (functionalTemplate) {\n    options.functional = true\n  }\n\n  // scopedId\n  if (scopeId) {\n    options._scopeId = 'data-v-' + scopeId\n  }\n\n  var hook\n  if (moduleIdentifier) { // server build\n    hook = function (context) {\n      // 2.3 injection\n      context =\n        context || // cached call\n        (this.$vnode && this.$vnode.ssrContext) || // stateful\n        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional\n      // 2.2 with runInNewContext: true\n      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {\n        context = __VUE_SSR_CONTEXT__\n      }\n      // inject component styles\n      if (injectStyles) {\n        injectStyles.call(this, context)\n      }\n      // register component module identifier for async chunk inferrence\n      if (context && context._registeredComponents) {\n        context._registeredComponents.add(moduleIdentifier)\n      }\n    }\n    // used by ssr in case component is cached and beforeCreate\n    // never gets called\n    options._ssrRegister = hook\n  } else if (injectStyles) {\n    hook = shadowMode\n      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }\n      : injectStyles\n  }\n\n  if (hook) {\n    if (options.functional) {\n      // for template-only hot-reload because in that case the render fn doesn't\n      // go through the normalizer\n      options._injectStyles = hook\n      // register for functioal component in vue file\n      var originalRender = options.render\n      options.render = function renderWithStyleInjection (h, context) {\n        hook.call(context)\n        return originalRender(h, context)\n      }\n    } else {\n      // inject component registration as beforeCreate hook\n      var existing = options.beforeCreate\n      options.beforeCreate = existing\n        ? [].concat(existing, hook)\n        : [hook]\n    }\n  }\n\n  return {\n    exports: scriptExports,\n    options: options\n  }\n}\n\n\n//# sourceURL=webpack://VueDynamicInput/./node_modules/vue-loader/lib/runtime/componentNormalizer.js?");
+
+/***/ }),
+
+/***/ "./src/RestoreInput.vue":
+/*!******************************!*\
+  !*** ./src/RestoreInput.vue ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _RestoreInput_vue_vue_type_template_id_2c5da455___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RestoreInput.vue?vue&type=template&id=2c5da455& */ \"./src/RestoreInput.vue?vue&type=template&id=2c5da455&\");\n/* harmony import */ var _RestoreInput_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RestoreInput.vue?vue&type=script&lang=js& */ \"./src/RestoreInput.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ \"./node_modules/vue-loader/lib/runtime/componentNormalizer.js\");\n\n\n\n\n\n/* normalize component */\n\nvar component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\n  _RestoreInput_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  _RestoreInput_vue_vue_type_template_id_2c5da455___WEBPACK_IMPORTED_MODULE_0__[\"render\"],\n  _RestoreInput_vue_vue_type_template_id_2c5da455___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"],\n  false,\n  null,\n  null,\n  null\n  \n)\n\n/* hot reload */\nif (false) { var api; }\ncomponent.options.__file = \"src/RestoreInput.vue\"\n/* harmony default export */ __webpack_exports__[\"default\"] = (component.exports);\n\n//# sourceURL=webpack://VueDynamicInput/./src/RestoreInput.vue?");
+
+/***/ }),
+
+/***/ "./src/RestoreInput.vue?vue&type=script&lang=js&":
+/*!*******************************************************!*\
+  !*** ./src/RestoreInput.vue?vue&type=script&lang=js& ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_RestoreInput_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../node_modules/vue-loader/lib??vue-loader-options!./RestoreInput.vue?vue&type=script&lang=js& */ \"./node_modules/vue-loader/lib/index.js?!./src/RestoreInput.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__[\"default\"] = (_node_modules_vue_loader_lib_index_js_vue_loader_options_RestoreInput_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[\"default\"]); \n\n//# sourceURL=webpack://VueDynamicInput/./src/RestoreInput.vue?");
+
+/***/ }),
+
+/***/ "./src/RestoreInput.vue?vue&type=template&id=2c5da455&":
+/*!*************************************************************!*\
+  !*** ./src/RestoreInput.vue?vue&type=template&id=2c5da455& ***!
+  \*************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RestoreInput_vue_vue_type_template_id_2c5da455___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../node_modules/vue-loader/lib??vue-loader-options!./RestoreInput.vue?vue&type=template&id=2c5da455& */ \"./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./src/RestoreInput.vue?vue&type=template&id=2c5da455&\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RestoreInput_vue_vue_type_template_id_2c5da455___WEBPACK_IMPORTED_MODULE_0__[\"render\"]; });\n\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RestoreInput_vue_vue_type_template_id_2c5da455___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"]; });\n\n\n\n//# sourceURL=webpack://VueDynamicInput/./src/RestoreInput.vue?");
+
+/***/ }),
+
+/***/ "./src/SmartInput.vue":
+/*!****************************!*\
+  !*** ./src/SmartInput.vue ***!
+  \****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _SmartInput_vue_vue_type_template_id_061257ba___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SmartInput.vue?vue&type=template&id=061257ba& */ \"./src/SmartInput.vue?vue&type=template&id=061257ba&\");\n/* harmony import */ var _SmartInput_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SmartInput.vue?vue&type=script&lang=js& */ \"./src/SmartInput.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ \"./node_modules/vue-loader/lib/runtime/componentNormalizer.js\");\n\n\n\n\n\n/* normalize component */\n\nvar component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\n  _SmartInput_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  _SmartInput_vue_vue_type_template_id_061257ba___WEBPACK_IMPORTED_MODULE_0__[\"render\"],\n  _SmartInput_vue_vue_type_template_id_061257ba___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"],\n  false,\n  null,\n  null,\n  null\n  \n)\n\n/* hot reload */\nif (false) { var api; }\ncomponent.options.__file = \"src/SmartInput.vue\"\n/* harmony default export */ __webpack_exports__[\"default\"] = (component.exports);\n\n//# sourceURL=webpack://VueDynamicInput/./src/SmartInput.vue?");
+
+/***/ }),
+
+/***/ "./src/SmartInput.vue?vue&type=script&lang=js&":
+/*!*****************************************************!*\
+  !*** ./src/SmartInput.vue?vue&type=script&lang=js& ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_SmartInput_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../node_modules/vue-loader/lib??vue-loader-options!./SmartInput.vue?vue&type=script&lang=js& */ \"./node_modules/vue-loader/lib/index.js?!./src/SmartInput.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__[\"default\"] = (_node_modules_vue_loader_lib_index_js_vue_loader_options_SmartInput_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[\"default\"]); \n\n//# sourceURL=webpack://VueDynamicInput/./src/SmartInput.vue?");
+
+/***/ }),
+
+/***/ "./src/SmartInput.vue?vue&type=template&id=061257ba&":
+/*!***********************************************************!*\
+  !*** ./src/SmartInput.vue?vue&type=template&id=061257ba& ***!
+  \***********************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SmartInput_vue_vue_type_template_id_061257ba___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../node_modules/vue-loader/lib??vue-loader-options!./SmartInput.vue?vue&type=template&id=061257ba& */ \"./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./src/SmartInput.vue?vue&type=template&id=061257ba&\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SmartInput_vue_vue_type_template_id_061257ba___WEBPACK_IMPORTED_MODULE_0__[\"render\"]; });\n\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SmartInput_vue_vue_type_template_id_061257ba___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"]; });\n\n\n\n//# sourceURL=webpack://VueDynamicInput/./src/SmartInput.vue?");
+
+/***/ }),
+
+/***/ "./src/helpers.js":
+/*!************************!*\
+  !*** ./src/helpers.js ***!
+  \************************/
+/*! exports provided: setValue, clearValue, insertValue, backspaceValue, confirmValue */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"setValue\", function() { return setValue; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"clearValue\", function() { return clearValue; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"insertValue\", function() { return insertValue; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"backspaceValue\", function() { return backspaceValue; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"confirmValue\", function() { return confirmValue; });\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ \"lodash\");\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);\n// Written by Aaron Beaudoin at Union College\r\n\r\n\r\n\r\nfunction getTypeConfig(element, types) {\r\n  return Object(lodash__WEBPACK_IMPORTED_MODULE_0__[\"defaultTo\"])(types[element.dataset.smart], types[\"text\"]);\r\n}\r\n\r\nfunction applyValue(element, value, caretIndex) {\r\n  if (caretIndex === undefined) caretIndex = value.length;\r\n\r\n  element.value = value;\r\n  element.selectionStart = caretIndex;\r\n  element.selectionEnd = caretIndex;\r\n  element.dispatchEvent(new Event(\"input\"));\r\n}\r\n\r\nfunction setValue(element, types, value, caretIndex) {\r\n  let config = getTypeConfig(element, types);\r\n  if (!config.restrict(value)) return;\r\n  applyValue(element, ...config.format(value, caretIndex));\r\n}\r\n\r\nfunction clearValue(element, types) {\r\n  let config = getTypeConfig(element, types);\r\n  applyValue(element, ...config.format(\"\", 0));\r\n}\r\n\r\n// Input validation must be performed at this step (before the input\r\n// value is actually set) and not in the component to prevent the\r\n// incorrect value from briefly appearing on-screen; Input formatting\r\n// must be done here for a similar reason (to manage the caret properly)\r\n// A data attribute MUST be used to detect the type of the input because\r\n// there is no way to reference its Vue component directly other than\r\n// element.__vue__, which can apparently have issues if the page\r\n// has more than one instance of Vue created on it\r\nfunction insertValue(element, types, value) {\r\n  let beforeSelect = element.value.substring(0, element.selectionStart);\r\n  let afterSelect = element.value.substring(element.selectionEnd);\r\n  \r\n  let inputValue = beforeSelect + value + afterSelect;\r\n  let caretIndex = (beforeSelect + value).length;\r\n\r\n  let config = getTypeConfig(element, types);\r\n  if (!config.restrict(inputValue)) return;\r\n  applyValue(element, ...config.format(inputValue, caretIndex));\r\n}\r\n\r\nfunction backspaceValue(element, types) {\r\n  let hasSelection = element.selectionEnd !== element.selectionStart;\r\n  let selectionStart = element.selectionStart - (hasSelection ? 0 : 1);\r\n  let beforeSelect = element.value.substring(0, selectionStart);\r\n  let afterSelect = element.value.substring(element.selectionEnd);\r\n  \r\n  let inputValue = beforeSelect + afterSelect;\r\n  let caretIndex = beforeSelect.length;\r\n\r\n  let config = getTypeConfig(element, types);\r\n  applyValue(element, ...config.format(inputValue, caretIndex));\r\n}\r\n\r\nfunction confirmValue(element) {\r\n  if (\"restore\" in element.dataset) element.dataset.restore = \"false\";\r\n}\r\n\n\n//# sourceURL=webpack://VueDynamicInput/./src/helpers.js?");
+
+/***/ }),
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/*! exports provided: install, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"install\", function() { return install; });\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ \"lodash\");\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers */ \"./src/helpers.js\");\n/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./types */ \"./src/types.js\");\n/* harmony import */ var _SmartInput__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./SmartInput */ \"./src/SmartInput.vue\");\n/* harmony import */ var _RestoreInput__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./RestoreInput */ \"./src/RestoreInput.vue\");\n// Written by Aaron Beaudoin at Union College\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n// Input formatting in this plugin works, but it sucks because you have\r\n// to write your own login for keeping track of the caret position\r\n// and making sure you keep it in the right position as the input changes\r\n// In the future I would like to mimic the behavior of this library:\r\n// https://nosir.github.io/cleave.js/\r\nfunction install(Vue, options) {\r\n  Vue.prototype.$input = {};\r\n  console.log(\"ayy\");\r\n\r\n  let defaultType = {\r\n    restrict: _ => true,\r\n    valid: value => value.length > 0,\r\n    invalid: _ => false,\r\n    format: (_, __) => [_, __],\r\n    parse: _ => _,\r\n    stringify: _ => Object(lodash__WEBPACK_IMPORTED_MODULE_0__[\"toString\"])(_)\r\n  };\r\n\r\n  let types = {\r\n    text: defaultType,\r\n    ...Object(lodash__WEBPACK_IMPORTED_MODULE_0__[\"forEach\"])(_types__WEBPACK_IMPORTED_MODULE_2__[\"default\"], type => Object(lodash__WEBPACK_IMPORTED_MODULE_0__[\"defaults\"])(type, defaultType)),\r\n    ...Object(lodash__WEBPACK_IMPORTED_MODULE_0__[\"forEach\"])(options, type => Object(lodash__WEBPACK_IMPORTED_MODULE_0__[\"defaults\"])(type, defaultType))\r\n  };\r\n\r\n  let tracking = Vue.observable({\r\n    active: false,\r\n    type: null,\r\n    value: \"\",\r\n    validity: null\r\n  });\r\n\r\n  Vue.component(_RestoreInput__WEBPACK_IMPORTED_MODULE_4__[\"default\"].name, _RestoreInput__WEBPACK_IMPORTED_MODULE_4__[\"default\"]);\r\n  Vue.component(_SmartInput__WEBPACK_IMPORTED_MODULE_3__[\"default\"].name, {\r\n    ..._SmartInput__WEBPACK_IMPORTED_MODULE_3__[\"default\"], \r\n    mixins: [{\r\n      beforeCreate() {\r\n        this.types = types;\r\n        this.tracking = tracking;\r\n      }\r\n    }]\r\n  });\r\n\r\n  // We need to do custom handling for all keyboard input events in\r\n  // order to validate text BEFORE it is added to an input\r\n  document.addEventListener(\"keydown\", event => {\r\n\r\n    // The `smart-input` component adds the `data-smart` attribute\r\n    // to signal that the input element should be treated specially\r\n    if (!event.target.dataset.smart) return;\r\n\r\n    // If the length of `event.key` is one, we assume that the key\r\n    // is a printable character like \"a\", \"3\", or \"?\"\r\n    let printable = event.key.length === 1;\r\n\r\n    // If a modified key is being held down we want to let the event\r\n    // proceed as usual so keyboard shortcuts don't break\r\n    let modifiers = event.ctrlKey || event.altKey || event.metaKey;\r\n\r\n    // Printable character behavior is handled by a custom function\r\n    if (printable && !modifiers) {\r\n      event.preventDefault();\r\n      _helpers__WEBPACK_IMPORTED_MODULE_1__[\"insertValue\"](document.activeElement, types, event.key);\r\n    \r\n    // Backspace behavior is handled by a custom function\r\n    } else if (event.key === \"Backspace\") {\r\n      event.preventDefault();\r\n      _helpers__WEBPACK_IMPORTED_MODULE_1__[\"backspaceValue\"](document.activeElement, types);\r\n    \r\n    // Tab is blocked to prevent cycling through focusable elements\r\n    // This may need to be done before the element check at the\r\n    // top of the listener but for now we'll see\r\n    } else if (event.key === \"Tab\") {\r\n      event.preventDefault();\r\n    }\r\n  });\r\n\r\n  // In order for on-screen numpads and keyboards to work properly we\r\n  // need to keep their buttons from removing focus from active inputs\r\n  document.addEventListener(\"mousedown\", event => {\r\n\r\n    // If the element or any parent above it in the tree has\r\n    // the `.blurry` class then block its regular behavior\r\n    if (event.target.closest(\".blurry\")) event.preventDefault();\r\n  });\r\n\r\n  Object(lodash__WEBPACK_IMPORTED_MODULE_0__[\"forEach\"])(tracking, (property, name) => {\r\n    Object.defineProperty(Vue.prototype.$input, name, {\r\n      // Using `property` simply returns the value of the property at the\r\n      // time that `forEach` was called, which is not what we want\r\n      get() { return tracking[name]; },\r\n      enumerable: true,\r\n      configurable: true\r\n    });\r\n  });\r\n\r\n  Object(lodash__WEBPACK_IMPORTED_MODULE_0__[\"forEach\"])(_helpers__WEBPACK_IMPORTED_MODULE_1__, (helper, name) => {\r\n    Object.defineProperty(Vue.prototype.$input, name, {\r\n      value: (...args) => {\r\n        let activeInput = document.activeElement;\r\n        if (!activeInput.dataset.smart) return;\r\n        helper(activeInput, types, ...args);\r\n      },\r\n      writable: true,\r\n      enumerable: true,\r\n      configurable: true\r\n    });\r\n  });\r\n};\r\n\r\nlet plugin = { install: install };\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (plugin);\r\n\r\n// let globalVue = null;\r\n// if (typeof window !== \"undefined\") globalVue = window.Vue;\r\n// else if (typeof global !== \"undefined\") globalVue = global.Vue;\r\n// if (globalVue) globalVue.use(plugin);\r\n\n\n//# sourceURL=webpack://VueDynamicInput/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/types.js":
+/*!**********************!*\
+  !*** ./src/types.js ***!
+  \**********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ \"lodash\");\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);\n// Written by Aaron Beaudoin at Union College\r\n\r\n\r\n\r\nfunction stripLeadingZeros(value, caretIndex) {\r\n  return [value.replace(/^0+([0-9]\\.?)/, \"$1\"), caretIndex];\r\n}\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\r\n  number: {\r\n    restrict: value => /^[0-9]*\\.?[0-9]*$/.test(value),\r\n    format: stripLeadingZeros,\r\n    parse: value => Number(value)\r\n  },\r\n  boolean: {\r\n    parse: value => [\"true\", \"t\", \"yes\", \"y\"].includes(Object(lodash__WEBPACK_IMPORTED_MODULE_0__[\"toUpper\"])(value))\r\n  }\r\n});\r\n\n\n//# sourceURL=webpack://VueDynamicInput/./src/types.js?");
+
+/***/ }),
+
+/***/ "lodash":
+/*!*************************************************************************************!*\
+  !*** external {"commonjs":"lodash","commonjs2":"lodash","amd":"lodash","root":"_"} ***!
+  \*************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE_lodash__;\n\n//# sourceURL=webpack://VueDynamicInput/external_%7B%22commonjs%22:%22lodash%22,%22commonjs2%22:%22lodash%22,%22amd%22:%22lodash%22,%22root%22:%22_%22%7D?");
+
+/***/ })
+
+/******/ });
+});

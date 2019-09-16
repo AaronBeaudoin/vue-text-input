@@ -1,6 +1,6 @@
 // Written by Aaron Beaudoin at Union College
 
-import defaultTo from "lodash/defaultTo";
+import { defaultTo } from "lodash";
 
 function getTypeConfig(element, types) {
   return defaultTo(types[element.dataset.smart], types["text"]);
