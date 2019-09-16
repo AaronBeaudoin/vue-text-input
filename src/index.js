@@ -13,9 +13,14 @@ import RestoreInput from "./RestoreInput";
 // https://nosir.github.io/cleave.js/
 export function install(Vue, options) {
   Vue.prototype.$input = {};
+  Vue.prototype.$input.restrict = null;
 
   let defaultType = {
     restrict: _ => true,
+    dynamicRestrict: _ => {
+      let restrict = Vue.prototype.$input.restrict;
+      return restrict ? restrict(_) : true;
+    },
     valid: value => value.length > 0,
     invalid: _ => false,
     format: (_, __) => [_, __],
@@ -33,7 +38,8 @@ export function install(Vue, options) {
     active: false,
     type: null,
     value: "",
-    validity: null
+    validity: null,
+    parsed: null
   });
 
   Vue.component(RestoreInput.name, RestoreInput);

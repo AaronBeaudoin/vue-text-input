@@ -1,0 +1,7 @@
+- Change `SmartInput` to `DynamicInput` in all usages
+- Consider making type object use lists of functions for certain properties
+  - Ex: `restrict` and `dynamicRestrict` properties would be combined into one `restrict` property that is a list of predicates to check
+  - Each type could have predicates added or removed at any time
+- Somehow inputs should be able to have restrictions and other properties added to them specifically (not at the type level)
+- Add formatting behavior using `cleave.js` as inspiration
+- Add documentation to `README.md`

@@ -79,6 +79,7 @@ export default {
       if (this.isFocused) {
         this.tracking.value = this.$el.value;
         this.tracking.validity = this.validity(this.$el.value);
+        this.tracking.parsed = parsedValue;
       }
     },
     handleFocus(event) {
@@ -88,10 +89,12 @@ export default {
       this.tracking.type = this.type;
       this.tracking.value = this.$el.value;
       this.tracking.validity = this.validity(this.$el.value);
+      this.tracking.parsed = this.parse(this.$el.value);
     },
     handleBlur(event) {
       this.isFocused = false;
       this.tracking.active = false;
+      this.$el.value = this.stringify(this.value);
     }
   },
   watch: {

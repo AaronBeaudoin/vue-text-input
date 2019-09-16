@@ -18,6 +18,7 @@ function applyValue(element, value, caretIndex) {
 export function setValue(element, types, value, caretIndex) {
   let config = getTypeConfig(element, types);
   if (!config.restrict(value)) return;
+  if (!config.dynamicRestrict(value)) return;
   applyValue(element, ...config.format(value, caretIndex));
 }
 
@@ -43,6 +44,7 @@ export function insertValue(element, types, value) {
 
   let config = getTypeConfig(element, types);
   if (!config.restrict(inputValue)) return;
+  if (!config.dynamicRestrict(inputValue)) return;
   applyValue(element, ...config.format(inputValue, caretIndex));
 }
 
