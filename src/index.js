@@ -78,12 +78,6 @@ export function install(Vue, options) {
     } else if (event.key === "Backspace") {
       event.preventDefault();
       helpers.backspaceValue(document.activeElement, types);
-    
-    // Tab is blocked to prevent cycling through focusable elements
-    // This may need to be done before the element check at the
-    // top of the listener but for now we'll see
-    } else if (event.key === "Tab") {
-      event.preventDefault();
     }
   });
 
