@@ -7,18 +7,27 @@
 </head>
 <body>
   <div id="app">
-    <smart-input type="number"/>
+    <div>Numeric</div>
+    <text-input type="numeric" :restrict="lt100"></text-input>
+    <div>Phone</div>
+    <text-input v-model="phone" type="phone"
+    :restore="true"></text-input>
+    <div>Phone + Not Live</div>
+    <text-input v-model="phone" type="phone"
+    :restore="true" :live="false"></text-input>
+    <div><button v-confirm>Confirm</button></div>
+    <pre>{{ $input }}</pre>
   </div>
 
   <script src="https://unpkg.com/lodash"></script>
   <script src="https://unpkg.com/vue/dist/vue.min"></script>
-  <script src="../dist/vue-dynamic-input.js"></script>
+  <script src="../dist/vue-text-input.js"></script>
   <script>
-  Vue.use(VueDynamicInput);
   let app = new Vue({
     el: "#app",
     data: {
-      message: "Hello!"
+      phone: "5313330432",
+      lt100: value => Number(value) > 100
     }
   });
   </script>

@@ -1,10 +1,9 @@
-const { join: joinPath } = require("path");
 const { VueLoaderPlugin } = require("vue-loader");
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: "./src/main.js",
   output: {
-    library: "VueDynamicInput",
+    library: "VueTextInput",
     libraryTarget: "umd"
   },
   externals: {
