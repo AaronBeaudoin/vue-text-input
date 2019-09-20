@@ -2,17 +2,82 @@
 
 `vue-text-input` is a Vue plugin which gives you much more control over the behavior of text-based input elements. You can set functions for validation and react to the current validity of the input, set functions which restrict what can be typed into the input altogether and react whenever this function restricts an input value, set functions for converting the text in the input to and from a different type, apply formatting to the input value as the user types, and more.
 
-
-## Documentation
-
 This plugin does four things when installed:
-- Exposes some global properties and methods at `Vue.prototype.$input`
 - Registers a global `<text-input>` component
+- Exposes some global properties and methods at `Vue.prototype.$input`
 - Registers a global `v-confirm` directive
 - Registers a global `v-blurry` directive
 
+## Documentation
 
-### Global Properties
+- [Standard Component Props](#standard-component-props)
+- [Type Extension Props](#type-extension-props)
+- [Global Properties](#global-properties)
+- [Global Methods](#global-methods)
+- [Directives](#directives)
+
+## Standard Component Props
+
+### **type** - _String_
+
+The type of the text input. Defaults to `"text"`.
+
+### **value** - _Any_
+
+A data value to bind the text input to. Defaults to `null`.
+
+### **restore** - _Boolean_
+
+When set to `true`, causes the text input to save its current value whenever the input is focused and then restore that value whenever the input is blurred, unless `$input.confirm` is called before the input is blurred. Defaults to `false`.
+
+### **live** - _Boolean_
+
+When set to `false`, prevents the text input from syncing its value with the bound data value while the input is focused. Defaults to `true`.
+
+### **select** - _Boolean_
+
+When set to `true`, causes the contents of the text input to be selected whenever the input is focused. Defaults to `false`.
+
+### **clear** - _Boolean_
+
+When set to `true`, causes the contents of the text input to be cleared whenever the input is focused. Defaults to `false`.
+
+## Type Extension Props
+
+Type extension props allows the behavior associated with the text input's current type to be extended or overridden. This allows the behavior of the text input to change dynamically in response to reactive data.
+
+### **restrict** - _Function | Array | null_
+
+Allows the `restrict` property of the selected text input type to be extended dynamically to include additional restrictions. Defaults to `null`.
+
+### **validate** - _Function | Array | null_
+
+Allows the `validate` property of the selected text input type to be extended dynamically to include additional validations. Defaults to `null`.
+
+### **invalidate** - _Function | Array | null_
+
+Allows the `invalidate` property of the selected text input type to be extended dynamically to include additional invalidations. Defaults to `null`.
+
+### **format** - _Function | null_
+
+Allows the `format` property of the selected text input type to be overridden. Defaults to `null`.
+
+### **parse** - _Function | null_
+
+Allows the `parse` property of the selected text input type to be overridden. Defaults to `null`.
+
+### **stringify** - _Function | null_
+
+Allows the `stringify` property of the selected text input type to be overridden. Defaults to `null`.
+
+## Global Properties
+
+### $input.**isActive** - _Boolean_
+### $input.**type** - _String_
+### $input.**value** - _String_
+### $input.**data** - _Any_
+### $input.**validity** - _Boolean | null_
+### $input.**block** - _Function_
 
 __`$input.isActive: Boolean`__  
 Whether or not any `<text-input>` component on the page is focused.
@@ -32,8 +97,12 @@ The validity of the value of the active `<text-input>` component. Returns `true`
 __`$input.block: (event: Event) => Boolean`__  
 A function which is run before every `keydown` event on a `<text-input>` component to determine whether or not the event should be ignored. This is useful in cases where keyboard input needs to be conditionally disabled entirely.
 
+## Global Methods
 
-### Global Methods
+### $input.**insert**(value: String, [selectStart: Number, selectEnd: Number])
+### $input.**set**(value: String)
+### $input.**backspace**(forward: Boolean)
+### $input.**confirm**(value: Boolean)
 
 __`$input.insert(value: String, selectStart?: Number, selectEnd?: Number)`__  
 If `isActive` is `true`, inserts `value` into the value of the active `<text-input>` component. If `selectStart` and `selectEnd` are omitted, the current `selectionStart` and `selectionEnd` values of the `<text-input>` component's inner `<input>` element are used.
@@ -47,54 +116,15 @@ If `isActive` is `true`, modifies the value of the active `<text-input>` compone
 __`$input.confirm(value?: Boolean)`__  
 If `isActive` is `true` and the active `<text-input>` component's `restore` prop is also `true`, signals the component not to reset its input value when it is next blurred to the value from before it was last focused.
 
+## Directives
 
-### Directives
+### **v-confirm**
 
-__`v-confirm`__  
 When added to an element, causes `mousedown` events on that element to trigger `$input.confirm`.
 
-__`v-blurry`__  
+### **v-blurry**
+
 When added to an element, prevent the default behavior of `mousedown` events on that element. This allows the element to be clicked without blurring the active `<text-input>` component.
-
-
-### `<text-input>` Component Props
-
-__`type: String = "text"`__  
-The type of the text input.
-
-__`restrict: Function | Array | null = null`__  
-TODO
-
-__`validate: Function | Array | null = null`__  
-TODO
-
-__`invalidate: Function | Array | null = null`__  
-TODO
-
-__`format: Function | null = null`__  
-TODO
-
-__`parse: Function | null = null`__  
-TODO
-
-__`stringify: Function | null = null`__  
-TODO
-
-__`value: Any = null`__  
-TODO
-
-__`restore: Boolean = false`__  
-TODO
-
-__`live: Boolean = false`__  
-TODO
-
-__`select: Boolean = false`__  
-TODO
-
-__`clear: Boolean = false`__  
-TODO
-
 
 ## Input History Caveats
 
@@ -108,7 +138,6 @@ Browsers do provide the `document.execCommand` function which can be used with t
 4. `document.execCommand` has issues in FireFox.
 
 For this reason, I have chosen not to support the native undo/redo stack in `vue-text-input`. An custom alternative undo/redo history solution will be implemented in the future.
-
 
 ## Author Information
 
