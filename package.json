@@ -10,8 +10,9 @@
   },
   "main": "dist/vue-text-input.min.js",
   "scripts": {
-    "prebuild": "webpack --mode=development -o dist/vue-text-input.js",
-    "build": "webpack --mode=production -o dist/vue-text-input.min.js",
+    "dev": "webpack --env development",
+    "prebuild": "webpack --env production",
+    "build": "webpack --env minified",
     "stats": "webpack --profile --json > dist/stats.json",
     "analyze": "webpack-bundle-analyzer dist/stats.json"
   },

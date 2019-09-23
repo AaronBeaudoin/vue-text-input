@@ -1,4 +1,4 @@
-import { forEach, defaults, toString, toLower } from "lodash";
+import { forEach, assign, clone, defaults, toString, toLower } from "lodash";
 import * as format from "./format";
 import TextInput from "./TextInput";
 
@@ -38,17 +38,40 @@ let defaultType = {
   stringify: _ => toString(_)
 };
 
-export function install(Vue) {
+export function install(Vue, configTypes) {
+  let assignTypeDefaults = _ => defaults(_, defaultType);
+  if (configTypes === undefined) configTypes = {};
+  
   let data = Vue.observable({
     instance: null,
-    types: {
-      ...forEach(presetTypes, type => defaults(type, defaultType)),
-      ...forEach(presetTypes, type => defaults(type, defaultType))
+    presetTypes: forEach(presetTypes, assignTypeDefaults),
+    configTypes: forEach(configTypes, assignTypeDefaults),
+    dynamicTypes: {},
+    get types() {
+      return {
+        ...data.presetTypes,
+        ...data.configTypes,
+        ...data.dynamicTypes
+      };
     }
   });
 
   let publicData = Vue.observable({
-    get isActive() { return !!data.instance; }
+    get isActive() { return !!data.instance; },
+    get types() {
+      let types = Object.create({
+        set(name, type) {
+          assignTypeDefaults(type);
+          Vue.set(data.dynamicTypes, name, type);
+        },
+        delete(name) {
+          Vue.delete(data.dynamicTypes, name);
+        }
+      });
+
+      assign(types, data.dynamicTypes);
+      return Object.freeze(types);
+    }
   });
 
   let addPublicGetter = (name, func, defaultValue) => {

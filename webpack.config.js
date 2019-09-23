@@ -1,8 +1,11 @@
+const { join: joinPath } = require("path"); 
 const { VueLoaderPlugin } = require("vue-loader");
 
-module.exports = {
+let config = {
   entry: "./src/main.js",
   output: {
+    filename: "vue-text-input.js",
+    path: joinPath(__dirname, "dist"),
     library: "VueTextInput",
     libraryTarget: "umd"
   },
@@ -27,5 +30,20 @@ module.exports = {
   },
   plugins: [
     new VueLoaderPlugin()
-  ]
+  ],
+  optimization: {
+    minimize: false
+  }
+};
+
+module.exports = env => {
+  if (env === "minified") {
+    let filename = config.output.filename;
+    config.output.filename = filename.replace(/\.js$/, ".min.js");
+    config.optimization.minimize = env === "minified";
+  }
+  
+  config.mode = env === "development" ? "development" : "production";
+  config.watch = env === "development";
+  return config;
 };
