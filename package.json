@@ -8,7 +8,7 @@
     "type": "git",
     "url": "git+https://github.com/AaronBeaudoin/vue-smart-input.git"
   },
-  "main": "dist/vue-text-input.min.js",
+  "main": "dist/vue-text-input.js",
   "scripts": {
     "dev": "webpack --env development",
     "prebuild": "webpack --env production",

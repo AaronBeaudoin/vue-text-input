@@ -323,9 +323,11 @@ function inputMethods_confirm(value) {
 /* harmony default export */ var TextInputvue_type_script_lang_js_ = ({
   name: "text-input",
   mixins: [
-    { computed: inputConfig_namespaceObject },
-    { methods: inputListeners_namespaceObject },
-    { methods: inputMethods_namespaceObject }
+    // If the `computed` or `methods` properties are directly set to
+    // `Module` objects, Vue will issue an "Invalid value" warning
+    { computed: { ...inputConfig_namespaceObject } },
+    { methods: { ...inputListeners_namespaceObject } },
+    { methods: { ...inputMethods_namespaceObject } }
   ],
   props: {
     type: { type: String, default: "text" },

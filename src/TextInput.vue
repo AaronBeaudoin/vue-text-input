@@ -11,9 +11,11 @@ import * as inputMethods from "./inputMethods";
 export default {
   name: "text-input",
   mixins: [
-    { computed: inputConfig },
-    { methods: inputListeners },
-    { methods: inputMethods }
+    // If the `computed` or `methods` properties are directly set to
+    // `Module` objects, Vue will issue an "Invalid value" warning
+    { computed: { ...inputConfig } },
+    { methods: { ...inputListeners } },
+    { methods: { ...inputMethods } }
   ],
   props: {
     type: { type: String, default: "text" },
