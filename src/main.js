@@ -2,7 +2,7 @@ import { forEach, assign, clone, defaults, toString, toLower } from "lodash";
 import * as format from "./format";
 import TextInput from "./TextInput";
 
-let presetConfigs = {
+let presetTypes = {
   text: {},
   numeric: {
     restrict: value => !/^[0-9]*\.?[0-9]*$/.test(value),
@@ -29,7 +29,7 @@ let presetConfigs = {
   }
 };
 
-let defaultConfig = {
+let defaultType = {
   restrict: _ => false,
   validate: value => value.length > 0,
   invalidate: _ => false,
@@ -38,39 +38,37 @@ let defaultConfig = {
   stringify: _ => toString(_)
 };
 
-export function install(Vue, installConfigs) {
-  let assignConfigDefaults = _ => defaults(_, defaultConfig);
-  if (installConfigs === undefined) installConfigs = {};
+export function install(Vue, config) {
+  if (config === undefined) config = {};
+  let assignTypeDefaults = _ => defaults(_, defaultType);
+  let configTypes = config.types ? config.types : {};
   
   let data = Vue.observable({
     instance: null,
-    presetConfigs: forEach(presetConfigs, assignConfigDefaults),
-    installConfigs: forEach(installConfigs, assignConfigDefaults),
-    dynamicConfigs: {},
-    get configs() {
-      return {
-        ...data.presetConfigs,
-        ...data.installConfigs,
-        ...data.dynamicConfigs
-      };
-    }
+    presetTypes: forEach(presetTypes, assignTypeDefaults),
+    dynamicTypes: forEach(configTypes, assignTypeDefaults),
+    get types() { return { ...data.presetTypes, ...data.dynamicTypes }; }
   });
 
   let publicData = Vue.observable({
     get isActive() { return !!data.instance; },
-    get configs() {
-      let configs = Object.create({
-        set(name, config) {
-          assignConfigDefaults(config);
-          Vue.set(data.dynamicConfigs, name, config);
+    get isEmpty() {
+      if (this.value === null) return true;
+      else return this.value.length === 0;
+    },
+    get types() {
+      let types = Object.create({
+        set(name, type) {
+          assignTypeDefaults(type);
+          Vue.set(data.dynamicTypes, name, type);
         },
         delete(name) {
-          Vue.delete(data.dynamicConfigs, name);
+          Vue.delete(data.dynamicTypes, name);
         }
       });
 
-      assign(configs, data.dynamicConfigs);
-      return Object.freeze(configs);
+      assign(types, data.dynamicTypes);
+      return Object.freeze(types);
     }
   });
 
@@ -94,11 +92,18 @@ export function install(Vue, installConfigs) {
     });
   };
 
-  addPublicGetter("config", _ => _.config, null);
+  addPublicGetter("type", _ => _.type, null);
   addPublicGetter("value", _ => _.inputValue, null);
   addPublicGetter("data", _ => _.dataValue, null);
   addPublicGetter("validity", _ => _.validity, null);
+
   addPublicProperty("block", _ => false);
+  addPublicProperty("restrict", _ => false);
+  addPublicProperty("onRestrict", _ => undefined);
+
+  if (config.block) publicData.block = config.block;
+  if (config.restrict) publicData.restrict = config.restrict;
+  if (config.onRestrict) publicData.onRestrict = config.onRestrict;
 
   let undef = _ => undefined;
   addPublicGetter("insert", _ => _.insert, undef);

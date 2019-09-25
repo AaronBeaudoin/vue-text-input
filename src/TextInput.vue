@@ -1,5 +1,5 @@
 <template>
-  <input v-bind="$attrs" v-on="listeners"
+  <input :type="nvtype" v-bind="$attrs" v-on="listeners"
   @input="handleInput" @focus="handleFocus" @blur="handleBlur">
 </template>
 
@@ -18,7 +18,8 @@ export default {
     { methods: { ...inputMethods } }
   ],
   props: {
-    config: { type: String, default: "text" },
+    type: { type: String, default: "text" },
+    nvtype: { type: String, default: "text" },
     restrict: { type: [Function, Array], default: null },
     validate: { type: [Function, Array], default: null },
     invalidate: { type: [Function, Array], default: null },
@@ -47,9 +48,9 @@ export default {
     isActive() {
       return this.$options.pluginData.instance === this;
     },
-    inputConfig() {
-      let configs = this.$options.pluginData.configs;
-      return this.config in configs ? configs[this.config] : configs["text"];
+    typeConfig() {
+      let types = this.$options.pluginData.types;
+      return this.type in types ? types[this.type] : types["text"];
     },
     validity() {
       if (this.inputValue === null) return null;
@@ -100,6 +101,10 @@ export default {
 
       this.$options.pluginData.instance = null;
       this.$emit("blur", this);
+    },
+    handleRestrict(value) {
+      this.$input.onRestrict(value);
+      this.$emit("restrict", value);
     }
   },
   watch: {

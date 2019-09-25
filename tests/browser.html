@@ -7,16 +7,18 @@
 </head>
 <body>
   <div id="app">
+    <div>Plain Text</div>
+    <text-input></text-input>
     <div>Numeric &le; 100</div>
-    <text-input config="numeric" :restrict="le100"></text-input>
+    <text-input type="numeric" :restrict="le100"></text-input>
     <div>Phone</div>
-    <text-input v-model="phone" config="phone"
+    <text-input v-model="phone" type="phone"
     :restore="true"></text-input>
     <div>Phone + Not Live</div>
-    <text-input v-model="phone" config="phone"
+    <text-input v-model="phone" type="phone"
     :restore="true" :live="false"></text-input>
-    <div>Custom Config (Test)</div>
-    <text-input :config="config"></text-input>
+    <div>Custom Type (Test)</div>
+    <text-input :type="type"></text-input>
     <div><button v-confirm>Confirm</button></div>
     <pre>{{ $input }}</pre>
   </div>
@@ -28,13 +30,13 @@
   let app = new Vue({
     el: "#app",
     data: {
-      config: "test",
+      type: "test",
       phone: "5313330432",
       le100: value => Number(value) > 100
     }
   });
 
-  app.$input.configs.set("test", {
+  app.$input.types.set("test", {
     restrict: value => value.length > 5
   });
   </script>

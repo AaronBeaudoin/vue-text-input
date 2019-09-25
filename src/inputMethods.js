@@ -17,14 +17,15 @@ export function insert(value, selectStart, selectEnd) {
   let inputValue = beforeSelect + value + afterSelect;
   let caretIndex = (beforeSelect + value).length;
 
-  if (this.inputRestrict(inputValue)) this.$emit("restrict", inputValue);
+  let restrict = _ => this.$input.restrict(_) || this.inputRestrict(_);
+  if (restrict(inputValue)) this.handleRestrict(inputValue);
   else apply.bind(this)(...this.inputFormat(inputValue, caretIndex));
-};
+}
 
 export function set(value) {
   if (typeof value !== "string") value = "";
   this.insert(value, 0, this.$el.value.length);
-};
+}
 
 export function backspace(forward) {
   if (typeof forward !== "boolean") forward = false;
@@ -42,7 +43,7 @@ export function backspace(forward) {
   let inputValue = beforeSelect + afterSelect;
   let caretIndex = beforeSelect.length;
   apply.bind(this)(...this.inputFormat(inputValue, caretIndex));
-};
+}
 
 export function confirm(value) {
   if (typeof value !== "boolean") value = false;
