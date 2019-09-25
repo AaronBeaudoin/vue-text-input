@@ -106,14 +106,14 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__0__;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var inputConfig_namespaceObject = {};
-__webpack_require__.r(inputConfig_namespaceObject);
-__webpack_require__.d(inputConfig_namespaceObject, "inputRestrict", function() { return inputRestrict; });
-__webpack_require__.d(inputConfig_namespaceObject, "inputValidate", function() { return inputValidate; });
-__webpack_require__.d(inputConfig_namespaceObject, "inputInvalidate", function() { return inputInvalidate; });
-__webpack_require__.d(inputConfig_namespaceObject, "inputFormat", function() { return inputFormat; });
-__webpack_require__.d(inputConfig_namespaceObject, "inputParse", function() { return inputParse; });
-__webpack_require__.d(inputConfig_namespaceObject, "inputStringify", function() { return inputStringify; });
+var inputBehaviors_namespaceObject = {};
+__webpack_require__.r(inputBehaviors_namespaceObject);
+__webpack_require__.d(inputBehaviors_namespaceObject, "inputRestrict", function() { return inputRestrict; });
+__webpack_require__.d(inputBehaviors_namespaceObject, "inputValidate", function() { return inputValidate; });
+__webpack_require__.d(inputBehaviors_namespaceObject, "inputInvalidate", function() { return inputInvalidate; });
+__webpack_require__.d(inputBehaviors_namespaceObject, "inputFormat", function() { return inputFormat; });
+__webpack_require__.d(inputBehaviors_namespaceObject, "inputParse", function() { return inputParse; });
+__webpack_require__.d(inputBehaviors_namespaceObject, "inputStringify", function() { return inputStringify; });
 var inputListeners_namespaceObject = {};
 __webpack_require__.r(inputListeners_namespaceObject);
 __webpack_require__.d(inputListeners_namespaceObject, "keydownListener", function() { return keydownListener; });
@@ -190,12 +190,12 @@ render._withStripped = true
 
 // CONCATENATED MODULE: ./src/TextInput.vue?vue&type=template&id=28d73718&
 
-// CONCATENATED MODULE: ./src/inputConfig.js
+// CONCATENATED MODULE: ./src/inputBehaviors.js
 
 
-function overwriteTypeFuncArray(name, logicalAnd) {
+function overwriteConfigFuncArray(name, logicalAnd) {
   return function() {
-    let defaultValue = this.typeConfig[name];
+    let defaultValue = this.inputConfig[name];
     if (Object(external_commonjs_lodash_commonjs2_lodash_amd_lodash_root_["isArray"])(defaultValue)) {
       if (logicalAnd) defaultValue = Object(external_commonjs_lodash_commonjs2_lodash_amd_lodash_root_["overEvery"])(defaultValue);
       else defaultValue = Object(external_commonjs_lodash_commonjs2_lodash_amd_lodash_root_["overSome"])(defaultValue);
@@ -213,20 +213,20 @@ function overwriteTypeFuncArray(name, logicalAnd) {
   };
 }
 
-function overwriteTypeFunc(name) {
+function overwriteConfigFunc(name) {
   return function() {
-    let defaultFunc = this.typeConfig[name];
+    let defaultFunc = this.inputConfig[name];
     return this[name] === null ? defaultFunc : this[name];
   };
 }
 
-let inputRestrict = overwriteTypeFuncArray("restrict");
-let inputValidate = overwriteTypeFuncArray("validate", true);
-let inputInvalidate = overwriteTypeFuncArray("invalidate");
+let inputRestrict = overwriteConfigFuncArray("restrict");
+let inputValidate = overwriteConfigFuncArray("validate", true);
+let inputInvalidate = overwriteConfigFuncArray("invalidate");
 
-let inputFormat = overwriteTypeFunc("format");
-let inputParse = overwriteTypeFunc("parse");
-let inputStringify = overwriteTypeFunc("stringify");
+let inputFormat = overwriteConfigFunc("format");
+let inputParse = overwriteConfigFunc("parse");
+let inputStringify = overwriteConfigFunc("stringify");
 
 // CONCATENATED MODULE: ./src/inputListeners.js
 function keydownListener(event) {
@@ -325,12 +325,12 @@ function inputMethods_confirm(value) {
   mixins: [
     // If the `computed` or `methods` properties are directly set to
     // `Module` objects, Vue will issue an "Invalid value" warning
-    { computed: { ...inputConfig_namespaceObject } },
+    { computed: { ...inputBehaviors_namespaceObject } },
     { methods: { ...inputListeners_namespaceObject } },
     { methods: { ...inputMethods_namespaceObject } }
   ],
   props: {
-    type: { type: String, default: "text" },
+    config: { type: String, default: "text" },
     restrict: { type: [Function, Array], default: null },
     validate: { type: [Function, Array], default: null },
     invalidate: { type: [Function, Array], default: null },
@@ -359,9 +359,9 @@ function inputMethods_confirm(value) {
     isActive() {
       return this.$options.pluginData.instance === this;
     },
-    typeConfig() {
-      let types = this.$options.pluginData.types;
-      return this.type in types ? types[this.type] : types["text"];
+    inputConfig() {
+      let configs = this.$options.pluginData.configs;
+      return this.config in configs ? configs[this.config] : configs["text"];
     },
     validity() {
       if (this.inputValue === null) return null;
@@ -551,7 +551,7 @@ component.options.__file = "src/TextInput.vue"
 
 
 
-let presetTypes = {
+let presetConfigs = {
   text: {},
   numeric: {
     restrict: value => !/^[0-9]*\.?[0-9]*$/.test(value),
@@ -578,7 +578,7 @@ let presetTypes = {
   }
 };
 
-let defaultType = {
+let defaultConfig = {
   restrict: _ => false,
   validate: value => value.length > 0,
   invalidate: _ => false,
@@ -587,39 +587,39 @@ let defaultType = {
   stringify: _ => Object(external_commonjs_lodash_commonjs2_lodash_amd_lodash_root_["toString"])(_)
 };
 
-function install(Vue, configTypes) {
-  let assignTypeDefaults = _ => Object(external_commonjs_lodash_commonjs2_lodash_amd_lodash_root_["defaults"])(_, defaultType);
-  if (configTypes === undefined) configTypes = {};
+function install(Vue, installConfigs) {
+  let assignConfigDefaults = _ => Object(external_commonjs_lodash_commonjs2_lodash_amd_lodash_root_["defaults"])(_, defaultConfig);
+  if (installConfigs === undefined) installConfigs = {};
   
   let data = Vue.observable({
     instance: null,
-    presetTypes: Object(external_commonjs_lodash_commonjs2_lodash_amd_lodash_root_["forEach"])(presetTypes, assignTypeDefaults),
-    configTypes: Object(external_commonjs_lodash_commonjs2_lodash_amd_lodash_root_["forEach"])(configTypes, assignTypeDefaults),
-    dynamicTypes: {},
-    get types() {
+    presetConfigs: Object(external_commonjs_lodash_commonjs2_lodash_amd_lodash_root_["forEach"])(presetConfigs, assignConfigDefaults),
+    installConfigs: Object(external_commonjs_lodash_commonjs2_lodash_amd_lodash_root_["forEach"])(installConfigs, assignConfigDefaults),
+    dynamicConfigs: {},
+    get configs() {
       return {
-        ...data.presetTypes,
-        ...data.configTypes,
-        ...data.dynamicTypes
+        ...data.presetConfigs,
+        ...data.installConfigs,
+        ...data.dynamicConfigs
       };
     }
   });
 
   let publicData = Vue.observable({
     get isActive() { return !!data.instance; },
-    get types() {
-      let types = Object.create({
-        set(name, type) {
-          assignTypeDefaults(type);
-          Vue.set(data.dynamicTypes, name, type);
+    get configs() {
+      let configs = Object.create({
+        set(name, config) {
+          assignConfigDefaults(config);
+          Vue.set(data.dynamicConfigs, name, config);
         },
         delete(name) {
-          Vue.delete(data.dynamicTypes, name);
+          Vue.delete(data.dynamicConfigs, name);
         }
       });
 
-      Object(external_commonjs_lodash_commonjs2_lodash_amd_lodash_root_["assign"])(types, data.dynamicTypes);
-      return Object.freeze(types);
+      Object(external_commonjs_lodash_commonjs2_lodash_amd_lodash_root_["assign"])(configs, data.dynamicConfigs);
+      return Object.freeze(configs);
     }
   });
 
@@ -643,7 +643,7 @@ function install(Vue, configTypes) {
     });
   };
 
-  addPublicGetter("type", _ => _.type, null);
+  addPublicGetter("config", _ => _.config, null);
   addPublicGetter("value", _ => _.inputValue, null);
   addPublicGetter("data", _ => _.dataValue, null);
   addPublicGetter("validity", _ => _.validity, null);

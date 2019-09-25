@@ -1,8 +1,8 @@
 import { overEvery, overSome, isArray } from "lodash";
 
-function overwriteTypeFuncArray(name, logicalAnd) {
+function overwriteConfigFuncArray(name, logicalAnd) {
   return function() {
-    let defaultValue = this.typeConfig[name];
+    let defaultValue = this.inputConfig[name];
     if (isArray(defaultValue)) {
       if (logicalAnd) defaultValue = overEvery(defaultValue);
       else defaultValue = overSome(defaultValue);
@@ -20,17 +20,17 @@ function overwriteTypeFuncArray(name, logicalAnd) {
   };
 }
 
-function overwriteTypeFunc(name) {
+function overwriteConfigFunc(name) {
   return function() {
-    let defaultFunc = this.typeConfig[name];
+    let defaultFunc = this.inputConfig[name];
     return this[name] === null ? defaultFunc : this[name];
   };
 }
 
-export let inputRestrict = overwriteTypeFuncArray("restrict");
-export let inputValidate = overwriteTypeFuncArray("validate", true);
-export let inputInvalidate = overwriteTypeFuncArray("invalidate");
+export let inputRestrict = overwriteConfigFuncArray("restrict");
+export let inputValidate = overwriteConfigFuncArray("validate", true);
+export let inputInvalidate = overwriteConfigFuncArray("invalidate");
 
-export let inputFormat = overwriteTypeFunc("format");
-export let inputParse = overwriteTypeFunc("parse");
-export let inputStringify = overwriteTypeFunc("stringify");
+export let inputFormat = overwriteConfigFunc("format");
+export let inputParse = overwriteConfigFunc("parse");
+export let inputStringify = overwriteConfigFunc("stringify");

@@ -4,7 +4,7 @@
 </template>
 
 <script>
-import * as inputConfig from "./inputConfig";
+import * as inputBehaviors from "./inputBehaviors";
 import * as inputListeners from "./inputListeners";
 import * as inputMethods from "./inputMethods";
 
@@ -13,12 +13,12 @@ export default {
   mixins: [
     // If the `computed` or `methods` properties are directly set to
     // `Module` objects, Vue will issue an "Invalid value" warning
-    { computed: { ...inputConfig } },
+    { computed: { ...inputBehaviors } },
     { methods: { ...inputListeners } },
     { methods: { ...inputMethods } }
   ],
   props: {
-    type: { type: String, default: "text" },
+    config: { type: String, default: "text" },
     restrict: { type: [Function, Array], default: null },
     validate: { type: [Function, Array], default: null },
     invalidate: { type: [Function, Array], default: null },
@@ -47,9 +47,9 @@ export default {
     isActive() {
       return this.$options.pluginData.instance === this;
     },
-    typeConfig() {
-      let types = this.$options.pluginData.types;
-      return this.type in types ? types[this.type] : types["text"];
+    inputConfig() {
+      let configs = this.$options.pluginData.configs;
+      return this.config in configs ? configs[this.config] : configs["text"];
     },
     validity() {
       if (this.inputValue === null) return null;

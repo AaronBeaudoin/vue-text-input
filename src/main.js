@@ -2,7 +2,7 @@ import { forEach, assign, clone, defaults, toString, toLower } from "lodash";
 import * as format from "./format";
 import TextInput from "./TextInput";
 
-let presetTypes = {
+let presetConfigs = {
   text: {},
   numeric: {
     restrict: value => !/^[0-9]*\.?[0-9]*$/.test(value),
@@ -29,7 +29,7 @@ let presetTypes = {
   }
 };
 
-let defaultType = {
+let defaultConfig = {
   restrict: _ => false,
   validate: value => value.length > 0,
   invalidate: _ => false,
@@ -38,39 +38,39 @@ let defaultType = {
   stringify: _ => toString(_)
 };
 
-export function install(Vue, configTypes) {
-  let assignTypeDefaults = _ => defaults(_, defaultType);
-  if (configTypes === undefined) configTypes = {};
+export function install(Vue, installConfigs) {
+  let assignConfigDefaults = _ => defaults(_, defaultConfig);
+  if (installConfigs === undefined) installConfigs = {};
   
   let data = Vue.observable({
     instance: null,
-    presetTypes: forEach(presetTypes, assignTypeDefaults),
-    configTypes: forEach(configTypes, assignTypeDefaults),
-    dynamicTypes: {},
-    get types() {
+    presetConfigs: forEach(presetConfigs, assignConfigDefaults),
+    installConfigs: forEach(installConfigs, assignConfigDefaults),
+    dynamicConfigs: {},
+    get configs() {
       return {
-        ...data.presetTypes,
-        ...data.configTypes,
-        ...data.dynamicTypes
+        ...data.presetConfigs,
+        ...data.installConfigs,
+        ...data.dynamicConfigs
       };
     }
   });
 
   let publicData = Vue.observable({
     get isActive() { return !!data.instance; },
-    get types() {
-      let types = Object.create({
-        set(name, type) {
-          assignTypeDefaults(type);
-          Vue.set(data.dynamicTypes, name, type);
+    get configs() {
+      let configs = Object.create({
+        set(name, config) {
+          assignConfigDefaults(config);
+          Vue.set(data.dynamicConfigs, name, config);
         },
         delete(name) {
-          Vue.delete(data.dynamicTypes, name);
+          Vue.delete(data.dynamicConfigs, name);
         }
       });
 
-      assign(types, data.dynamicTypes);
-      return Object.freeze(types);
+      assign(configs, data.dynamicConfigs);
+      return Object.freeze(configs);
     }
   });
 
@@ -94,7 +94,7 @@ export function install(Vue, configTypes) {
     });
   };
 
-  addPublicGetter("type", _ => _.type, null);
+  addPublicGetter("config", _ => _.config, null);
   addPublicGetter("value", _ => _.inputValue, null);
   addPublicGetter("data", _ => _.dataValue, null);
   addPublicGetter("validity", _ => _.validity, null);

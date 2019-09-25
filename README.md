@@ -1,6 +1,24 @@
 # vue-text-input
 
-`vue-text-input` is a Vue plugin which gives you much more control over the behavior of text-based input elements. You can set functions for validation and react to the current validity of the input, set functions which restrict what can be typed into the input altogether and react whenever this function restricts an input value, set functions for converting the text in the input to and from a different type, apply formatting to the input value as the user types, and more.
+`vue-text-input` is a Vue plugin which gives you much more control over the behavior of text-based input elements. Everything in `vue-text-input` is built with Vue's reactivity system in mind so you can easily modify the behavior of a text input on the fly.
+
+Installing `vue-text-input` gives you the `<text-input>` component along with a few tools which make using it a piece of cake. This component is just a wrapper around a regular `<input>` element, so you can style it just like you would a normal input. However, using `<text-input>` allows us to plug the behavior and state of the input into our application in a reactive and accessible way.
+
+The most important prop you can pass to a `<text-input>` component instance is the `type` prop.
+
+## Features
+
+In `vue-text-
+
+- Restrict what can be typed into an input using a function
+- Mark an input as valid, invalid, or neither using a combination of two functions
+- Format the text in an input as new text in inserted
+- Choose how text in an input is parsed into data when used with `v-model`
+- Choose how data connected to an input is stringified into text
+- Programatically manipulate or watch for changes in the currently focused text input from anywhere in an application
+- Add special behavior to an input
+
+You can set functions for validation and react to the current validity of the input, set functions which restrict what can be typed into the input altogether and react whenever this function restricts an input value, set functions for converting the text in the input to and from a different type, apply formatting to the input value as the user types, and more.
 
 This plugin does four things when installed:
 - Registers a global `<text-input>` component
@@ -126,18 +144,17 @@ When added to an element, causes `mousedown` events on that element to trigger `
 
 When added to an element, prevent the default behavior of `mousedown` events on that element. This allows the element to be clicked without blurring the active `<text-input>` component.
 
-## Input History Caveats
+## Why no input history? (Undo/Redo Behavior)
 
-Unfortunately, there is no adequate cross-platform way to use the native undo/redo stack for an input if it is being modified programatically. This is a problem because `<text-input>` always has to update its value programatically in order to provide the functionality that it does.
+Unfortunately, there is no adequate cross-platform way to use the **native** undo/redo stack for an input if it is being modified programatically. This is a problem because some features of the `<text-input>` component depend completely on being able to programatically modify the input element.
 
-Browsers do provide the `document.execCommand` function which can be used with the `insertText` command to insert text into an active area of the document. This is the only way that text can be added to the document programatically which works with the native undo/redo stack. However, this method of inserting text has several critical issues.
+Browsers do provide the `document.execCommand` function which can be used with the `insertText` command to insert text into an **active** area of the document. This is the only way that text can be added to the document programatically which works with the native undo/redo stack. However, this method of inserting text has several critical limitations.
 
-1. The input must be focused, making this function insufficient for reacting to data changes.
-2. The function is only for inserting text into the input, not for setting the entire value of the input. To set the entire value, the input's `selectionStart` and `selectionEnd` properties must still be set to the `0` and `element.value.length` respectively before running `document.execCommand`.
-3. The input formatting implementation that `vue-text-input` uses relies on always being able to set the entire value of an input. Therefore, the process just described in (2) would have to be done each time the input in updated, resulting in the entire value of the input being selected after each undo. This is a bad user experience and means that using `document.execCommand` is fundamentally incompatible with live input formatting.
-4. `document.execCommand` has issues in FireFox.
+1. Since the function works simply on whatever is currently active, an input must be focused to be modified.
+2. The input formatting implementation that `vue-text-input` uses sets the entire value of an input whenever it needs to be updated. This is _possible_ with `document.execCommand` by selecting the entire value of the input before each insert, but this results in the whole value being selected after each undo.
+3. `document.execCommand` has issues in FireFox and can have inconsistent behavior across browsers.
 
-For this reason, I have chosen not to support the native undo/redo stack in `vue-text-input`. An custom alternative undo/redo history solution will be implemented in the future.
+For these reasons, the native undo/redo stack is currently unsupported in `vue-text-input`. However, I plan to implement a custom alternative input history solution in the future allowing undo/redo to still be possible everywhere except for in the native context menu.
 
 ## Author Information
 
