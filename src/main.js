@@ -52,10 +52,6 @@ export function install(Vue, config) {
 
   let publicData = Vue.observable({
     get isActive() { return !!data.instance; },
-    get isEmpty() {
-      if (this.value === null) return true;
-      else return this.value.length === 0;
-    },
     get types() {
       let types = Object.create({
         set(name, type) {
@@ -94,6 +90,7 @@ export function install(Vue, config) {
 
   addPublicGetter("type", _ => _.type, null);
   addPublicGetter("value", _ => _.inputValue, null);
+  addPublicGetter("isEmpty", _ => _.isEmpty, true);
   addPublicGetter("data", _ => _.dataValue, null);
   addPublicGetter("validity", _ => _.validity, null);
 

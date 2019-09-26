@@ -27,8 +27,9 @@ export default {
     parse: { type: Function, default: null },
     stringify: { type: Function, default: null },
     value: { default: null },
-    restore: { type: Boolean, default: false },
     live: { type: Boolean, default: true },
+    tidy: { type: Boolean, default: false },
+    restore: { type: Boolean, default: false },
     select: { type: Boolean, default: false },
     clear: { type: Boolean, default: false }
   },
@@ -47,6 +48,9 @@ export default {
     },
     isActive() {
       return this.$options.pluginData.instance === this;
+    },
+    isEmpty() {
+      return this.inputValue.length === 0;
     },
     typeConfig() {
       let types = this.$options.pluginData.types;
@@ -96,7 +100,7 @@ export default {
         this.$emit("input", this.dataValue);
       }
 
-      this.updateValue(this.dataValue);
+      if (this.tidy) this.updateValue(this.dataValue);
       if (this.restore && !this.canRestore) this.canRestore = true;
 
       this.$options.pluginData.instance = null;

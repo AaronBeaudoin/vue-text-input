@@ -341,8 +341,9 @@ function inputMethods_confirm(value) {
     parse: { type: Function, default: null },
     stringify: { type: Function, default: null },
     value: { default: null },
-    restore: { type: Boolean, default: false },
     live: { type: Boolean, default: true },
+    tidy: { type: Boolean, default: false },
+    restore: { type: Boolean, default: false },
     select: { type: Boolean, default: false },
     clear: { type: Boolean, default: false }
   },
@@ -361,6 +362,9 @@ function inputMethods_confirm(value) {
     },
     isActive() {
       return this.$options.pluginData.instance === this;
+    },
+    isEmpty() {
+      return this.inputValue.length === 0;
     },
     typeConfig() {
       let types = this.$options.pluginData.types;
@@ -410,7 +414,7 @@ function inputMethods_confirm(value) {
         this.$emit("input", this.dataValue);
       }
 
-      this.updateValue(this.dataValue);
+      if (this.tidy) this.updateValue(this.dataValue);
       if (this.restore && !this.canRestore) this.canRestore = true;
 
       this.$options.pluginData.instance = null;
@@ -608,10 +612,6 @@ function install(Vue, config) {
 
   let publicData = Vue.observable({
     get isActive() { return !!data.instance; },
-    get isEmpty() {
-      if (this.value === null) return true;
-      else return this.value.length === 0;
-    },
     get types() {
       let types = Object.create({
         set(name, type) {
@@ -650,6 +650,7 @@ function install(Vue, config) {
 
   addPublicGetter("type", _ => _.type, null);
   addPublicGetter("value", _ => _.inputValue, null);
+  addPublicGetter("isEmpty", _ => _.isEmpty, true);
   addPublicGetter("data", _ => _.dataValue, null);
   addPublicGetter("validity", _ => _.validity, null);
 
