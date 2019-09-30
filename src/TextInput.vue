@@ -92,15 +92,19 @@ export default {
       this.$emit("focus", this);
     },
     handleBlur() {
-      if (this.restore && this.canRestore) {
+      let doRestore = this.restore && this.canRestore;
+      let doCatchup = !this.live;
+      let doUpdate = doRestore || doCatchup || this.tidy;
+
+      if (doRestore) {
         this.dataValue = this.restoreValue;
         this.$emit("input", this.dataValue);
-      } else if (!this.live) {
+      } else if (doCatchup) {
         this.dataValue = this.inputParse(this.inputValue);
         this.$emit("input", this.dataValue);
       }
 
-      if (this.tidy) this.updateValue(this.dataValue);
+      if (doUpdate) this.updateValue(this.dataValue);
       if (this.restore && !this.canRestore) this.canRestore = true;
 
       this.$options.pluginData.instance = null;
