@@ -1,5 +1,4 @@
-import { forEach, mapValues, assign, defaults } from "lodash";
-import { toString, toLower } from "lodash";
+import { mapValues, assign, defaults, toString, toLower } from "lodash";
 import * as format from "./format";
 import TextInput from "./TextInput";
 

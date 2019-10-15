@@ -569,7 +569,6 @@ component.options.__file = "src/TextInput.vue"
 
 
 
-
 let presetTypes = {
   text: {},
   numeric: {
