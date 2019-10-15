@@ -608,7 +608,7 @@ let defaultType = {
 
 function install(Vue, config) {
   if (config === undefined) config = {};
-  let assignTypeDefaults = _ => Object(external_commonjs_lodash_commonjs2_lodash_amd_lodash_root_["defaults"])({}, _, defaultType);
+  let assignTypeDefaults = _ => ({ ...defaultType, ..._ });
   let configTypes = config.types ? config.types : {};
 
   let data = Vue.observable({

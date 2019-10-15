@@ -1,6 +1,6 @@
 <template>
-  <input :type="nativeType" v-bind="$attrs" v-on="listeners"
-  @input="handleInput" @focus="handleFocus" @blur="handleBlur">
+<input :type="nativeType" v-bind="$attrs" v-on="listeners"
+@input="handleInput" @focus="handleFocus" @blur="handleBlur">
 </template>
 
 <script>

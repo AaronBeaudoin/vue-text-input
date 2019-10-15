@@ -1,4 +1,4 @@
-import { mapValues, assign, defaults, toString, toLower } from "lodash";
+import { mapValues, assign, toString, toLower } from "lodash";
 import * as format from "./format";
 import TextInput from "./TextInput";
 
@@ -41,7 +41,7 @@ let defaultType = {
 
 export function install(Vue, config) {
   if (config === undefined) config = {};
-  let assignTypeDefaults = _ => defaults({}, _, defaultType);
+  let assignTypeDefaults = _ => ({ ...defaultType, ..._ });
   let configTypes = config.types ? config.types : {};
 
   let data = Vue.observable({
