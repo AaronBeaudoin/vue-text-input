@@ -1,5 +1,5 @@
 <template>
-  <input :type="nvtype" v-bind="$attrs" v-on="listeners"
+  <input :type="nativeType" v-bind="$attrs" v-on="listeners"
   @input="handleInput" @focus="handleFocus" @blur="handleBlur">
 </template>
 
@@ -19,7 +19,7 @@ export default {
   ],
   props: {
     type: { type: String, default: "text" },
-    nvtype: { type: String, default: "text" },
+    nvtype: { type: String, default: null },
     restrict: { type: [Function, Array], default: null },
     validate: { type: [Function, Array], default: null },
     invalidate: { type: [Function, Array], default: null },
@@ -55,6 +55,9 @@ export default {
     typeConfig() {
       let types = this.$options.pluginData.types;
       return this.type in types ? types[this.type] : types["text"];
+    },
+    nativeType() {
+      return this.nvtype ? this.nvtype : this.typeConfig.nvtype;
     },
     validity() {
       if (this.inputValue === null) return null;

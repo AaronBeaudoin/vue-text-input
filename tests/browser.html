@@ -18,7 +18,7 @@
     <text-input v-model="phone" type="phone"
     :restore="true" :live="false"></text-input>
     <div>Custom Type (Test)</div>
-    <text-input :type="type"></text-input>
+    <text-input :type="type" nvtype="text"></text-input>
     <div><button v-confirm>Confirm</button></div>
     <pre>{{ $input }}</pre>
   </div>
@@ -37,6 +37,7 @@
   });
 
   app.$input.types.set("test", {
+    nvtype: "number",
     restrict: value => value.length > 5
   });
   </script>

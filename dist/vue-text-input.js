@@ -170,7 +170,7 @@ var render = function() {
     _vm._g(
       _vm._b(
         {
-          attrs: { type: _vm.nvtype },
+          attrs: { type: _vm.nativeType },
           on: {
             input: _vm.handleInput,
             focus: _vm.handleFocus,
@@ -333,7 +333,7 @@ function inputMethods_confirm(value) {
   ],
   props: {
     type: { type: String, default: "text" },
-    nvtype: { type: String, default: "text" },
+    nvtype: { type: String, default: null },
     restrict: { type: [Function, Array], default: null },
     validate: { type: [Function, Array], default: null },
     invalidate: { type: [Function, Array], default: null },
@@ -369,6 +369,9 @@ function inputMethods_confirm(value) {
     typeConfig() {
       let types = this.$options.pluginData.types;
       return this.type in types ? types[this.type] : types["text"];
+    },
+    nativeType() {
+      return this.nvtype ? this.nvtype : this.typeConfig.nvtype;
     },
     validity() {
       if (this.inputValue === null) return null;
@@ -595,6 +598,7 @@ let presetTypes = {
 };
 
 let defaultType = {
+  nvtype: "text",
   restrict: _ => false,
   validate: value => value.length > 0,
   invalidate: _ => false,

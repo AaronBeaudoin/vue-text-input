@@ -31,6 +31,7 @@ let presetTypes = {
 };
 
 let defaultType = {
+  nvtype: "text",
   restrict: _ => false,
   validate: value => value.length > 0,
   invalidate: _ => false,
