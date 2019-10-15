@@ -1,4 +1,5 @@
-import { forEach, assign, clone, defaults, toString, toLower } from "lodash";
+import { forEach, mapValues, assign, defaults } from "lodash";
+import { toString, toLower } from "lodash";
 import * as format from "./format";
 import TextInput from "./TextInput";
 
@@ -40,14 +41,18 @@ let defaultType = {
 
 export function install(Vue, config) {
   if (config === undefined) config = {};
-  let assignTypeDefaults = _ => defaults(_, defaultType);
+  let assignTypeDefaults = _ => defaults({}, _, defaultType);
   let configTypes = config.types ? config.types : {};
-  
+
   let data = Vue.observable({
     instance: null,
-    presetTypes: forEach(presetTypes, assignTypeDefaults),
-    dynamicTypes: forEach(configTypes, assignTypeDefaults),
-    get types() { return { ...data.presetTypes, ...data.dynamicTypes }; }
+    userTypes: configTypes,
+    get types() {
+      return {
+        ...mapValues(presetTypes, assignTypeDefaults),
+        ...mapValues(data.userTypes, assignTypeDefaults)
+      };
+    }
   });
 
   let publicData = Vue.observable({
@@ -55,15 +60,14 @@ export function install(Vue, config) {
     get types() {
       let types = Object.create({
         set(name, type) {
-          assignTypeDefaults(type);
-          Vue.set(data.dynamicTypes, name, type);
+          Vue.set(data.userTypes, name, type);
         },
         delete(name) {
-          Vue.delete(data.dynamicTypes, name);
+          Vue.delete(data.userTypes, name);
         }
       });
 
-      assign(types, data.dynamicTypes);
+      assign(types, data.userTypes);
       return Object.freeze(types);
     }
   });

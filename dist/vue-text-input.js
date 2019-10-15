@@ -566,6 +566,7 @@ component.options.__file = "src/TextInput.vue"
 
 
 
+
 let presetTypes = {
   text: {},
   numeric: {
@@ -604,14 +605,18 @@ let defaultType = {
 
 function install(Vue, config) {
   if (config === undefined) config = {};
-  let assignTypeDefaults = _ => Object(external_commonjs_lodash_commonjs2_lodash_amd_lodash_root_["defaults"])(_, defaultType);
+  let assignTypeDefaults = _ => Object(external_commonjs_lodash_commonjs2_lodash_amd_lodash_root_["defaults"])({}, _, defaultType);
   let configTypes = config.types ? config.types : {};
-  
+
   let data = Vue.observable({
     instance: null,
-    presetTypes: Object(external_commonjs_lodash_commonjs2_lodash_amd_lodash_root_["forEach"])(presetTypes, assignTypeDefaults),
-    dynamicTypes: Object(external_commonjs_lodash_commonjs2_lodash_amd_lodash_root_["forEach"])(configTypes, assignTypeDefaults),
-    get types() { return { ...data.presetTypes, ...data.dynamicTypes }; }
+    userTypes: configTypes,
+    get types() {
+      return {
+        ...Object(external_commonjs_lodash_commonjs2_lodash_amd_lodash_root_["mapValues"])(presetTypes, assignTypeDefaults),
+        ...Object(external_commonjs_lodash_commonjs2_lodash_amd_lodash_root_["mapValues"])(data.userTypes, assignTypeDefaults)
+      };
+    }
   });
 
   let publicData = Vue.observable({
@@ -619,15 +624,14 @@ function install(Vue, config) {
     get types() {
       let types = Object.create({
         set(name, type) {
-          assignTypeDefaults(type);
-          Vue.set(data.dynamicTypes, name, type);
+          Vue.set(data.userTypes, name, type);
         },
         delete(name) {
-          Vue.delete(data.dynamicTypes, name);
+          Vue.delete(data.userTypes, name);
         }
       });
 
-      Object(external_commonjs_lodash_commonjs2_lodash_amd_lodash_root_["assign"])(types, data.dynamicTypes);
+      Object(external_commonjs_lodash_commonjs2_lodash_amd_lodash_root_["assign"])(types, data.userTypes);
       return Object.freeze(types);
     }
   });
