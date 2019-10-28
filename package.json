@@ -3,10 +3,10 @@
   "description": "Vue plugin for advanced control of text input elements.",
   "author": "Aaron Beaudoin",
   "license": "MIT",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AaronBeaudoin/vue-smart-input.git"
+    "url": "git+https://github.com/AaronBeaudoin/vue-text-input.git"
   },
   "main": "dist/vue-text-input.js",
   "scripts": {
