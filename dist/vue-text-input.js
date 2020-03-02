@@ -231,10 +231,11 @@ let inputStringify = overwriteTypeFunc("stringify");
 
 // CONCATENATED MODULE: ./src/inputListeners.js
 function keydownListener(event) {
-  if (this.$input.block(event)) return event.preventDefault();
   let modifiers = event.ctrlKey || event.altKey || event.metaKey;
 
-  if (event.key.length === 1 && !modifiers) this.insert(event.key);
+  if (event.key.length === 1 && !modifiers) {
+    if (!this.$input.block(event)) this.insert(event.key);
+  }
   else if (event.key === "Backspace") this.backspace();
   else if (event.key === "Delete") this.backspace(true);
   else return;
