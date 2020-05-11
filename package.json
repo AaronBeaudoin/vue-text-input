@@ -3,12 +3,12 @@
   "description": "Vue plugin for advanced control of text input elements.",
   "author": "Aaron Beaudoin",
   "license": "MIT",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AaronBeaudoin/vue-text-input.git"
   },
-  "main": "dist/vue-text-input.js",
+  "main": "dist/vue-text-input.min.js",
   "scripts": {
     "dev": "webpack --env development",
     "prebuild": "webpack --env production",

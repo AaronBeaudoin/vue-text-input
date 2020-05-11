@@ -308,8 +308,8 @@ function backspace(forward) {
 }
 
 function inputMethods_confirm(value) {
-  if (typeof value !== "boolean") value = false;
-  if (this.restore) this.canRestore = value;
+  if (typeof value !== "boolean") value = true;
+  if (this.restore) this.canRestore = !value;
 }
 
 // CONCATENATED MODULE: ./node_modules/vue-loader/lib??vue-loader-options!./src/TextInput.vue?vue&type=script&lang=js&
@@ -399,7 +399,7 @@ function inputMethods_confirm(value) {
     handleInput() {
       this.inputValue = this.$el.value;
       if (this.live) {
-        this.dataValue = this.inputParse(this.$el.value);
+        this.dataValue = this.inputParse(this.inputValue);
         this.$emit("input", this.dataValue);
       }
     },
@@ -591,9 +591,6 @@ let presetTypes = {
     parse: value => {
       return value.replace(/[^0-9]/g, "");
     }
-  },
-  boolean: {
-    parse: value => ["true", "t", "yes", "y"].includes(Object(external_commonjs_lodash_commonjs2_lodash_amd_lodash_root_["toLower"])(value))
   }
 };
 
@@ -627,10 +624,10 @@ function install(Vue, config) {
     get isActive() { return !!data.instance; },
     get types() {
       let types = Object.create({
-        set(name, type) {
+        $create(name, type) {
           Vue.set(data.userTypes, name, type);
         },
-        delete(name) {
+        $delete(name) {
           Vue.delete(data.userTypes, name);
         }
       });
