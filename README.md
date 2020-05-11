@@ -1,92 +1,54 @@
 # vue-text-input
 
-`vue-text-input` is a Vue plugin which gives you much more control over the behavior of text-based input elements. Everything in `vue-text-input` is built with Vue's reactivity system in mind so you can easily modify the behavior of a text input on the fly.
+`vue-text-input` is a Vue plugin for enabling more powerful control over text-based input elements.
 
-Installing `vue-text-input` gives you the `<text-input>` component along with a few tools which make using it a piece of cake. This component is just a wrapper around a regular `<input>` element, so you can style it just like you would a normal input. However, using `<text-input>` allows us to plug the behavior and state of the input into our application in a reactive and accessible way.
+- **Simple.** Introduces a single new component `<text-input>`.
+- **Stylable.** Wraps a regular `<input>` element, making styling a piece of cake.
+- **Reactive**. Input behavior can be modified on the fly.
 
-The most important prop you can pass to a `<text-input>` component instance is the `type` prop.
+Install with `npm install vue-text-input`.
 
-## Features
+## Additions to Vue Instance
 
-In `vue-text-
+When installed, `vue-text-input` adds the following global features to your Vue instance:
 
-- Restrict what can be typed into an input using a function
-- Mark an input as valid, invalid, or neither using a combination of two functions
-- Format the text in an input as new text in inserted
-- Choose how text in an input is parsed into data when used with `v-model`
-- Choose how data connected to an input is stringified into text
-- Programatically manipulate or watch for changes in the currently focused text input from anywhere in an application
-- Add special behavior to an input
-
-You can set functions for validation and react to the current validity of the input, set functions which restrict what can be typed into the input altogether and react whenever this function restricts an input value, set functions for converting the text in the input to and from a different type, apply formatting to the input value as the user types, and more.
-
-This plugin does four things when installed:
-- Registers a global `<text-input>` component
-- Exposes some global properties and methods at `Vue.prototype.$input`
-- Registers a global `v-confirm` directive
-- Registers a global `v-blurry` directive
+- A `<text-input>` Vue component to use as a replacements for `<input>`.
+- A collection of properties and methods accessible at `Vue.prototype.$input`.
+- Two Vue directives: `v-confirm` and `v-blurry`.
 
 ## Documentation
 
-- [Standard Component Props](#standard-component-props)
-- [Type Extension Props](#type-extension-props)
+- [`<text-input>` Component](#text-input-component)
 - [Global Properties](#global-properties)
 - [Global Methods](#global-methods)
 - [Directives](#directives)
 
-## Standard Component Props
+## \<text-input\> Component
 
-### **type** - _String_
+### Component Props
 
-The type of the text input. Defaults to `"text"`.
+_Note: A `Predicate` is just a `Function` which returns a `Boolean`._
 
-### **value** - _Any_
+| Name | Type | Description |
+| --- | --- | --- |
+| type | _String_ | The type of the text input. Defaults to `"text"`. |
+| nvtype | _String?_ | The native type of the text input. This is the value for the `type` attribute of the underlying `<input>` element. Defaults to `null`. |
+| restrict | _Predicate?_<br>_Predicate[]_ | Function(s) which run each time the value of the text input is about to be changed. Function(s) take the value the text input would have after said change as a parameter. If **any** function returns `true`, the change is **cancelled.** |
+| validate | _Predicate?_<br>_Predicate[]_ | Function(s) which are used to determine the validity of the value of the text input. Function(s) take the value of the text input as a parameter. If **all** functions returns `true`, the value of the text input is considered **valid.** |
+| invalidate | _Predicate?_<br>_Predicate[]_ | Function(s) which are used to determine the validity of the value of the text input. Function(s) take the value of the text input as a parameter. If **any** function returns `true`, the value of the text input is considered **invalid.** |
+| format | _Function?_ | A function used to format the value of the text input as changes occur. The function runs each time the value of the text input is about to be changed. This function overrides the `format` function associated with the `type` of the text input. |
+| parse | _Function?_ | A function used to parse the value of the text input before `"input"` events are emitted to update the data value it is bound to. This function overrides the `parse` function associated with the `type` of the text input. |
+| stringify | _Function?_ | A function used to stringify the data value a text input is bound to. This function overrides the `stringify` function associated with the `type` of the text input. |
+| value | _Any?_ | A data value to bind to the text input. |
+| live | _Boolean_ | Whether or not the the text input should emit `"input"` events to update the data value it is bound to while the text input is focused. Defaults to `true`. |
+| tidy | _Boolean_ | Whether or not to **always** update the value of the text input using the data value it is bound to when the text input is blurred. Defaults to `false`. |
+| restore | _Boolean_ | Whether or not the value of the text input before it was focused should be restored when the text input is blurred. Defaults to `false`. To prevent the value of the text input from being restored, call the `$input.confirm` function before the text input is blurred. |
+| select | _Boolean_ | Whether or not the entire value of the text input should be selected when the text input is focused. Defaults to `false`. |
+| clear | _Boolean_ | Whether or not the entire value of the text input should be cleared when the text input is focused. Defaults to `false`. |
 
-A data value to bind the text input to. Defaults to `null`.
+## Vue.prototype.$input
 
-### **restore** - _Boolean_
 
-When set to `true`, causes the text input to save its current value whenever the input is focused and then restore that value whenever the input is blurred, unless `$input.confirm` is called before the input is blurred. Defaults to `false`.
-
-### **live** - _Boolean_
-
-When set to `false`, prevents the text input from syncing its value with the bound data value while the input is focused. Defaults to `true`.
-
-### **select** - _Boolean_
-
-When set to `true`, causes the contents of the text input to be selected whenever the input is focused. Defaults to `false`.
-
-### **clear** - _Boolean_
-
-When set to `true`, causes the contents of the text input to be cleared whenever the input is focused. Defaults to `false`.
-
-## Type Extension Props
-
-Type extension props allows the behavior associated with the text input's current type to be extended or overridden. This allows the behavior of the text input to change dynamically in response to reactive data.
-
-### **restrict** - _Function | Array | null_
-
-Allows the `restrict` property of the selected text input type to be extended dynamically to include additional restrictions. Defaults to `null`.
-
-### **validate** - _Function | Array | null_
-
-Allows the `validate` property of the selected text input type to be extended dynamically to include additional validations. Defaults to `null`.
-
-### **invalidate** - _Function | Array | null_
-
-Allows the `invalidate` property of the selected text input type to be extended dynamically to include additional invalidations. Defaults to `null`.
-
-### **format** - _Function | null_
-
-Allows the `format` property of the selected text input type to be overridden. Defaults to `null`.
-
-### **parse** - _Function | null_
-
-Allows the `parse` property of the selected text input type to be overridden. Defaults to `null`.
-
-### **stringify** - _Function | null_
-
-Allows the `stringify` property of the selected text input type to be overridden. Defaults to `null`.
 
 ## Global Properties
 
@@ -154,7 +116,7 @@ Browsers do provide the `document.execCommand` function which can be used with t
 2. The input formatting implementation that `vue-text-input` uses sets the entire value of an input whenever it needs to be updated. This is _possible_ with `document.execCommand` by selecting the entire value of the input before each insert, but this results in the whole value being selected after each undo.
 3. `document.execCommand` has issues in FireFox and can have inconsistent behavior across browsers.
 
-For these reasons, the native undo/redo stack is currently unsupported in `vue-text-input`. However, I plan to implement a custom alternative input history solution in the future allowing undo/redo to still be possible everywhere except for in the native context menu.
+For these reasons, the native undo/redo stack is currently unsupported in `vue-text-input`. However, I am considering implementing a custom alternative input history solution in the future allowing undo/redo to still be possible everywhere except for in the native context menu.
 
 ## Author Information
 

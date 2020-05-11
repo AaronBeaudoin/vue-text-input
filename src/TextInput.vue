@@ -84,7 +84,7 @@ export default {
     handleInput() {
       this.inputValue = this.$el.value;
       if (this.live) {
-        this.dataValue = this.inputParse(this.$el.value);
+        this.dataValue = this.inputParse(this.inputValue);
         this.$emit("input", this.dataValue);
       }
     },
