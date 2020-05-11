@@ -46,6 +46,6 @@ export function backspace(forward) {
 }
 
 export function confirm(value) {
-  if (typeof value !== "boolean") value = false;
-  if (this.restore) this.canRestore = value;
+  if (typeof value !== "boolean") value = true;
+  if (this.restore) this.canRestore = !value;
 }

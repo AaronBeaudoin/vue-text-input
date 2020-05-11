@@ -23,9 +23,6 @@ let presetTypes = {
     parse: value => {
       return value.replace(/[^0-9]/g, "");
     }
-  },
-  boolean: {
-    parse: value => ["true", "t", "yes", "y"].includes(toLower(value))
   }
 };
 
@@ -59,10 +56,10 @@ export function install(Vue, config) {
     get isActive() { return !!data.instance; },
     get types() {
       let types = Object.create({
-        set(name, type) {
+        $create(name, type) {
           Vue.set(data.userTypes, name, type);
         },
-        delete(name) {
+        $delete(name) {
           Vue.delete(data.userTypes, name);
         }
       });
